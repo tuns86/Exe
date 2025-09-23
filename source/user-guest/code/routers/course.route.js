@@ -23,14 +23,27 @@ const {
 
 //Trang thông tin chi tiết khóa học
 Router.get('/:nameCourse', async (req, res) => {
+
+    console.log("👉 Route /course/:nameCourse được gọi");
+    console.log("👉 req.params:", req.params);
+
     let nameCourse = req.params.nameCourse.toString();
+
+    console.log("👉 nameCourse:", nameCourse);
    
     const course = await Course.findOne({
             name: nameCourse
         })
         .populate('idLecturer')
         .populate('idCourseTopic');
-        
+
+         console.log("👉 Course tìm thấy:", course);
+
+       if (!course.idLecturer) {
+        console.log("⚠️ Course không có giảng viên");
+        course.idLecturer = { name: "Chưa có giảng viên" };
+    }
+
     //Tăng view Topic và Category
     course.numberOfView += 1;
     course.save();

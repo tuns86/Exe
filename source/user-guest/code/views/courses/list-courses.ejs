@@ -49,22 +49,26 @@
     margin-top: 20px;
   }
 
+  /* Updated course badges to blue variants */
   .card-hot {
     width: 40px;
     height: 25px;
-    background-color: rgba(243, 70, 70, 0.788);
+    background-color: #2563eb;
+    color: white;
   }
 
   .card-new {
     width: 40px;
     height: 25px;
-    background-color: rgb(86, 202, 86);
+    background-color: #1d4ed8;
+    color: white;
   }
 
   .card-best {
     width: 40px;
     height: 25px;
-    background-color: rgb(226, 226, 73);
+    background-color: #3b82f6;
+    color: white;
   }
 
   .price {
@@ -94,8 +98,9 @@
     transition: background-color 0.3s;
   }
 
+  /* Updated pagination active state to blue */
   .active {
-    background-color: red;
+    background-color: #2563eb;
     color: white;
   }
   #searchForm1 select{
@@ -121,8 +126,11 @@
 #searchForm1{
   margin-bottom: 20px;
 }
+/* Updated filter button to blue */
 #buttonFilter{
   padding: 16px 23px;
+  background-color: #2563eb;
+  border-color: #2563eb;
 }
 
 </style>
@@ -164,7 +172,8 @@
             <select id="topicSelect" name="courseTopicID"></select>
           </div>
           <div class="form-group col-sm-2">
-            <button class="btn btn-success" id="buttonFilter" type="button">Filter</button>
+            <!-- Updated button class to blue -->
+            <button class="btn btn-primary" id="buttonFilter" type="button">Filter</button>
           </div>
         </div>
       </form>
@@ -227,9 +236,7 @@
     </script>
     <% } %>
     <h1><%= title %> </h1>
-    <% for( let i=0; i < courses.length; i++ ) { %> <%-
-    include('../partials/card-course-list', { course: courses[i],
-    isAuthenticated: isAuthenticated, index: i }) %> <% } %>
+    <% for( let i=0; i < courses.length; i++ ) { %> <%- include('../partials/card-course-list', { course: courses[i], isAuthenticated: isAuthenticated, index: i }) %> <% } %>
   </div>
 
   <div

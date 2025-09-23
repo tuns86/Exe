@@ -34,13 +34,13 @@ const CourseSchema = mongoose.Schema({
         type: mongoose.Schema.ObjectId,
         ref: 'coursetopics'
     },
-    uploadDate: {
-        type: Date,
-        default: Date.now()
-    },
     idLecturer: {
         type: mongoose.Schema.ObjectId,
         ref: 'lecturers'
+    },
+    uploadDate: {
+        type: Date,
+        default: Date.now()
     },
     numberOfVideo: {
         type: Number,
@@ -89,6 +89,9 @@ const CourseSchema = mongoose.Schema({
         default: true
     }
 });
+
+// 👉 Thêm text index cho các field cần tìm kiếm
+CourseSchema.index({ name: 'text', description: 'text' });
 
 const Course = mongoose.model('courses', CourseSchema);
 
