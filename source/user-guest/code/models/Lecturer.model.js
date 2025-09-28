@@ -43,5 +43,4 @@ const LecturerSchema = mongoose.Schema({
 });
 
 const Lecturer = mongoose.model('lecturers', LecturerSchema);
-
 module.exports = Lecturer;

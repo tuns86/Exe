@@ -1,30 +1,245 @@
 <%- include('../partials/messages') %> 
-<div class="row mt-5 ">
-    <div class="col-md-6 m-auto">
+
+<style>
+/* Blue color scheme styling */
+.auth-container {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.form-toggle {
+    display: flex;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 4px;
+    margin-bottom: 20px;
+}
+
+.toggle-btn {
+    flex: 1;
+    padding: 12px;
+    background: transparent;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    color: #6c757d;
+}
+
+.toggle-btn.active {
+    background-color: #007bff;
+    color: white;
+    box-shadow: 0 2px 4px rgba(0,123,255,0.3);
+}
+
+.form-container {
+    position: relative;
+    min-height: 400px;
+}
+
+.auth-form {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    transform: translateX(20px);
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.auth-form.active {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: all;
+}
+
+/* Blue theme overrides */
+.btn-primary, .btn-danger {
+    background-color: #007bff !important;
+    border-color: #007bff !important;
+}
+
+.btn-primary:hover, .btn-danger:hover {
+    background-color: #0056b3 !important;
+    border-color: #0056b3 !important;
+}
+
+.form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,0.25);
+}
+
+/* Blue links */
+a {
+    color: #007bff !important;
+}
+
+a:hover {
+    color: #0056b3 !important;
+}
+
+/* Card styling */
+.card {
+    border: none;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border-radius: 12px;
+}
+
+.card-body {
+    padding: 2rem;
+}
+
+/* Icon styling */
+.fas, .fab {
+    color: #007bff;
+}
+
+/* Gender radio buttons styling */
+.gender-group {
+    display: flex;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.gender-group input[type="radio"] {
+    margin-right: 5px;
+}
+
+.gender-group label {
+    margin-right: 0;
+    margin-bottom: 0;
+}
+</style>
+
+<div class="row mt-5">
+    <div class="col-md-8 auth-container">
         <div class="card card-body">
-            <h1 class="text-center mb-3"><i class="fas fa-sign-in-alt"></i> Login</h1>
-            <form action="#" method="POST" id="form-login">
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" class="form-control" placeholder="Enter Email" />
+            <div class="form-toggle">
+                <button type="button" class="toggle-btn active" id="login-toggle">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </button>
+                <button type="button" class="toggle-btn" id="register-toggle">
+                    <i class="fas fa-user-plus"></i> Register
+                </button>
+            </div>
+
+            <div class="form-container">
+                <div class="auth-form active" id="login-form-container">
+                    <h1 class="text-center mb-4"><i class="fas fa-sign-in-alt"></i> Welcome Back</h1>
+                    <form action="#" method="POST" id="form-login">
+                        <div class="form-group">
+                            <label for="login-email">Email</label>
+                            <input type="email" id="login-email" name="email" class="form-control" placeholder="Enter Email" />
+                        </div>
+                        <div class="form-group">
+                            <label for="login-password">Password</label>
+                            <input type="password" id="login-password" name="password" class="form-control"
+                                placeholder="Enter Password" />
+                        </div>
+                        <div class="form-group login-button text-center">
+                            <button type="submit" class="btn btn-primary btn-block mb-2">Login</button>
+                        </div>
+                    </form>
+                    <p class="text-center mt-3">
+                        <!-- <a href="#" id="forgot-password-link">Forgot password?</a> -->
+                    </p>
                 </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" name="password" class="form-control"
-                        placeholder="Enter Password" />
-                    <br>
+
+                <div class="auth-form" id="register-form-container">
+                    <h1 class="text-center mb-4"><i class="fas fa-user-plus"></i> Create Account</h1>
+                    <%- include('../partials/messages') %>
+                    <form action="/users/register" method="POST">
+                        <div class="form-group">
+                            <label for="register-name">Name</label>
+                            <input type="name" id="register-name" name="name" class="form-control" placeholder="Enter Name"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="register-email">Email</label>
+                            <input type="email" id="register-email" name="email" class="form-control" placeholder="Enter Email"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="register-password">Password</label>
+                            <input type="password" id="register-password" name="password" class="form-control"
+                                placeholder="Create Password" autocomplete="new-password"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="register-password2">Confirm Password</label>
+                            <input type="password" id="register-password2" name="password2" class="form-control"
+                                placeholder="Confirm Password" autocomplete="new-password"/>
+                        </div>
+                        <div class="form-group">
+                            <label>Gender</label>
+                            <div class="gender-group">
+                                <div>
+                                    <input type="radio" name="gender" id="female" value="female" checked="checked">
+                                    <label for="female">Female</label>
+                                </div>
+                                <div>
+                                    <input type="radio" name="gender" id="male" value="male">
+                                    <label for="male">Male</label>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">
+                            Register
+                        </button>
+                    </form>
                 </div>
-                <div class="form-group login-button text-center">
-                    <button type="submit" class="btn btn-danger btn-block">Login</button>
-                    <a href="/users/auth/facebook" class="btn btn-primary btn-block"><i class="fab fa-facebook-square"></i> Login with Facebook</a>
-                </div>
-            </form>
-            <p style="text-align: center;">
-                or <a href="#" style="color: red;">Forgot password?</a>
-            </p>
-            <p class="lead mt-4">
-                No Account? <a href="/users/register" style="color: red;">Register</a>
-            </p>
+            </div>
         </div>
     </div>
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const loginToggle = document.getElementById('login-toggle');
+    const registerToggle = document.getElementById('register-toggle');
+    const loginForm = document.getElementById('login-form-container');
+    const registerForm = document.getElementById('register-form-container');
+
+    // Function to switch to login form
+    function showLogin() {
+        loginToggle.classList.add('active');
+        registerToggle.classList.remove('active');
+        loginForm.classList.add('active');
+        registerForm.classList.remove('active');
+    }
+
+    // Function to switch to register form
+    function showRegister() {
+        registerToggle.classList.add('active');
+        loginToggle.classList.remove('active');
+        registerForm.classList.add('active');
+        loginForm.classList.remove('active');
+    }
+
+    // Event listeners for toggle buttons
+    loginToggle.addEventListener('click', showLogin);
+    registerToggle.addEventListener('click', showRegister);
+
+    // Handle "Forgot password" link - could redirect or show forgot password form
+    const forgotPasswordLink = document.getElementById('forgot-password-link');
+    if (forgotPasswordLink) {
+        forgotPasswordLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            // You can add forgot password functionality here
+            alert('Forgot password functionality can be implemented here');
+        });
+    }
+
+    // Optional: Add keyboard navigation
+    document.addEventListener('keydown', function(e) {
+        if (e.altKey) {
+            if (e.key === '1') {
+                e.preventDefault();
+                showLogin();
+            } else if (e.key === '2') {
+                e.preventDefault();
+                showRegister();
+            }
+        }
+    });
+});
+</script>

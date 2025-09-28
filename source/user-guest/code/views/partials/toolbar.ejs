@@ -80,41 +80,46 @@
         <div class="col-sm-4">
           <a href="/users/login"> <i class="fas fa-sign-in-alt"></i>Login </a>
         </div>
-        <div class="col-sm-4">
+        <!-- <div class="col-sm-4">
           <a href="/users/register">
             <i class="fas fa-user-plus"></i>Register
           </a>
-        </div>
+        </div> -->
         <% }else{ %>
         <div class="col-sm-6 text-right">
           <div class="nav-item dropdown">
-            <a href="/users/account" data-toggle="dropdown" class="nav-link dropdown-toggle">
+            <a href="/users/account" data-toggle="dropdown" class="nav-link dropdown-toggle" style="padding: 10px;">
               <i class="fas fa-user-circle"></i> <%= user.name %> 
             </a>
             <ul class="dropdown-menu">
               <li>
-                <a href="/users/account">
+                <a class="dropdown-item" href="/users/account">
                   <i class="fas fa-folder-open"></i> Account
                 </a>
               </li>
               <li>
-                <a href="/my-courses">
+                <a class="dropdown-item" href="/my-courses">
                   <i class="fas fa-folder-open"></i> My Courses
                 </a>
               </li>
               <li>
-                <a href="/my-wish-list">
+                <a class="dropdown-item" href="/my-wish-list">
                   <i class="fa fa-heart" aria-hidden="true"></i> Wish list
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="/users/logout">
+                  <i class="fas fa-sign-out-alt"></i>Logout
                 </a>
               </li>
             </ul>
           </div>
         </div>
-        <div class="col-sm-4 logout text-right">
+        <!-- <div class="col-sm-4 logout text-right">
           <a href="/users/logout">
             <i class="fas fa-sign-out-alt"></i>Logout
           </a>
-        </div>
+        </div> -->
 
         <% } %>
       </div>
@@ -143,7 +148,7 @@
   
   #header .dropdown-item:hover {
     background-color: #e3f2fd;
-    color: #1d4ed8;
+    color: #2563eb;
   }
   
   #header.fixed {
@@ -159,12 +164,13 @@
     color: #e3f2fd !important;
   }
   
-  #header .featured a {
-    color: white !important;
-  }
+  /* #header .featured a { */
+    /* color: white !important; */
+  /* } */
   
   #header .featured a:hover {
     color: #e3f2fd !important;
+    background-color: #2563eb !important;
   }
 </style>
 <script>

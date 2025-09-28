@@ -239,14 +239,6 @@
   <div class="black-background">
     <div class="container-wrap">
       <div name="header">
-        <a href="/" style="color: rgb(144, 205, 247)">
-          <strong>Home</strong>
-        </a>
-        <span style="color: rgb(144, 205, 247)"> ></span>
-        <a href="#" style="color: rgb(144, 205, 247)">
-          <strong><%= course.name %> </strong>
-        </a>
-
         <img src="<%= course.poster %>" alt="image" class="img" />
         <div class="text-container inlineblock" style="border-bottom: 0">
           <div name="couser-detail">
@@ -471,7 +463,9 @@
     <div id="couser-teacher" class="text-container">
       <h2 class="heading-xl">Instructor</h2>
       <div class="heading-lg">
-        <a href="#" style="text-decoration: none">Mai Ngọc Tú</a>
+        <a href="#" style="text-decoration: none">
+          <%= course.idLecturer.name %>
+        </a>
       </div>
       <p style="color: gray">Development Team Lead</p>
       <div class="row">

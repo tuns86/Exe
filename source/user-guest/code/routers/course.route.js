@@ -28,21 +28,14 @@ Router.get('/:nameCourse', async (req, res) => {
     console.log("👉 req.params:", req.params);
 
     let nameCourse = req.params.nameCourse.toString();
-
-    console.log("👉 nameCourse:", nameCourse);
    
-    const course = await Course.findOne({
-            name: nameCourse
-        })
-        .populate('idLecturer')
-        .populate('idCourseTopic');
+    const courseRaw = await Course.findOne({ name: nameCourse });
+console.log("📌 Trước populate:", courseRaw.idLecturer);
 
-         console.log("👉 Course tìm thấy:", course);
-
-       if (!course.idLecturer) {
-        console.log("⚠️ Course không có giảng viên");
-        course.idLecturer = { name: "Chưa có giảng viên" };
-    }
+const course = await Course.findOne({ name: nameCourse })
+  .populate('idLecturer')
+  .populate('idCourseTopic');
+console.log("📌 Sau populate:", course.idLecturer);
 
     //Tăng view Topic và Category
     course.numberOfView += 1;
