@@ -17,7 +17,6 @@ require('./middlewares/error.mdw')(app);
 //require('./middlewares/paypal.mdw')(app);
 require('./middlewares/cloudinary.mdw')(app);
 
-
 app.listen(8000, console.log('Server running on port 8000'));
 
 // const express = require("express");
