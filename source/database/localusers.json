@@ -16,7 +16,8 @@
   "idWishList": [],
   "purchasedCourses": [],
   "status": true
-},{
+},
+{
   "_id": {
     "$oid": "6000451357786f321c0b1543"
   },
@@ -59,7 +60,8 @@
       }
     }
   ]
-},{
+},
+{
   "_id": {
     "$oid": "6000473871058d1140488fab"
   },
@@ -77,7 +79,8 @@
   "otpNumber": "671234",
   "__v": 0,
   "status": true
-},{
+},
+{
   "_id": {
     "$oid": "600510de0bbefd1b2051c3b0"
   },
@@ -109,4 +112,44 @@
       "$oid": "6002d1c7777655267ca1fd79"
     }
   ]
+},
+{
+  "_id": {
+    "$oid": "68d21a1dd5b13064b4c2b304"
+  },
+  "gender": "male",
+  "date": {
+    "$date": "2025-09-23T03:52:14.595Z"
+  },
+  "avatar": "https://res.cloudinary.com/teamwebctt2/image/upload/v1610695375/webctt2/avatar/default/avatar.png",
+  "isAuth": true,
+  "idWishList": [],
+  "status": true,
+  "purchasedCourses": [],
+  "name": "tuns86",
+  "email": "tuan@gmail.com",
+  "password": "$2a$10$iFPNBdQeiyGNo30i4oe9BORVrs0dJENoWe2wMgfO0Fg7hYZYIaHda",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68d900e79adba85364b9765a"
+  },
+  "gender": "male",
+  "date": {
+    "$date": "2025-09-28T09:00:41.306Z"
+  },
+  "avatar": "https://res.cloudinary.com/teamwebctt2/image/upload/v1610695375/webctt2/avatar/default/avatar.png",
+  "isAuth": true,
+  "idWishList": [
+    {
+      "$oid": "6002d1c7777655267ca1fd79"
+    }
+  ],
+  "status": true,
+  "purchasedCourses": [],
+  "name": "tuanviprpo",
+  "email": "tuanvippro@gmail.com",
+  "password": "$2a$10$1dBCQSKV0SXSR3Iw9cM4POxadKUFNsGfe1dw7DCfcEGbbhaN2loIy",
+  "__v": 1
 }]

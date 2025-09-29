@@ -73,7 +73,8 @@
   "numberOfEvaluation": 0,
   "numberOfVideos": 1,
   "status": true
-},{
+},
+{
   "_id": {
     "$oid": "5ff2e3b37d305e09608a1deb"
   },
@@ -138,7 +139,8 @@
   "userEvaluations": [],
   "numberOfVideo": 4,
   "userReviews": []
-},{
+},
+{
   "_id": {
     "$oid": "5ff2e3b37d305e09608a1df0"
   },
@@ -203,7 +205,8 @@
   "userEvaluations": [],
   "numberOfVideo": 4,
   "userReviews": []
-},{
+},
+{
   "_id": {
     "$oid": "5ff2e3b37d305e09608a1df5"
   },
@@ -211,7 +214,7 @@
   "description": "Học 1 bữa có việc làm chính thức ở VNG, 2 bữa làm giám đốc công ty start up về IT, 3 bữa làm senior coder tại Facebook",
   "evaluationPoint": 5,
   "numberOfStudent": 1,
-  "numberOfView": 231,
+  "numberOfView": 244,
   "tuition": 10,
   "uploadDate": {
     "$date": "2021-01-04T09:45:23.278Z"
@@ -292,7 +295,8 @@
     }
   ],
   "status": true
-},{
+},
+{
   "_id": {
     "$oid": "5ff2e3b37d305e09608a1dfa"
   },
@@ -357,7 +361,8 @@
   "userEvaluations": [],
   "numberOfVideo": 4,
   "userReviews": []
-},{
+},
+{
   "_id": {
     "$oid": "5ff2e3b37d305e09608a1dff"
   },
@@ -422,7 +427,8 @@
   "userEvaluations": [],
   "numberOfVideo": 4,
   "userReviews": []
-},{
+},
+{
   "_id": {
     "$oid": "6002d1c7777655267ca1fd77"
   },
@@ -488,7 +494,8 @@
   "userReviews": [],
   "__v": 2,
   "status": true
-},{
+},
+{
   "_id": {
     "$oid": "6002d1c7777655267ca1fd78"
   },
@@ -496,7 +503,7 @@
   "description": "Học 1 bữa có việc làm chính thức ở VNG, 2 bữa làm giám đốc công ty start up về IT, 3 bữa làm senior coder tại Facebook",
   "evaluationPoint": 4,
   "numberOfStudent": 1,
-  "numberOfView": 17,
+  "numberOfView": 23,
   "tuition": 10,
   "uploadDate": {
     "$date": "2021-01-16T11:45:11.312Z"
@@ -564,7 +571,8 @@
   "userReviews": [],
   "__v": 2,
   "status": true
-},{
+},
+{
   "_id": {
     "$oid": "6002d1c7777655267ca1fd79"
   },
@@ -572,7 +580,7 @@
   "description": "Học 1 bữa có việc làm chính thức ở VNG, 2 bữa làm giám đốc công ty start up về IT, 3 bữa làm senior coder tại Facebook",
   "evaluationPoint": 5,
   "numberOfStudent": 4,
-  "numberOfView": 70,
+  "numberOfView": 109,
   "tuition": 10,
   "uploadDate": {
     "$date": "2021-01-16T11:45:11.312Z"
@@ -689,7 +697,8 @@
   ],
   "__v": 7,
   "status": true
-},{
+},
+{
   "_id": {
     "$oid": "60047d3819b151093c0018e6"
   },
@@ -755,7 +764,8 @@
   "userReviews": [],
   "__v": 2,
   "status": true
-},{
+},
+{
   "_id": {
     "$oid": "60047d52f174ae4108bfb5b7"
   },
@@ -821,7 +831,8 @@
   "userReviews": [],
   "__v": 10,
   "status": true
-},{
+},
+{
   "_id": {
     "$oid": "60047d92b5a8d22b18f6f9d0"
   },
@@ -887,7 +898,8 @@
   "userReviews": [],
   "__v": 1,
   "status": true
-},{
+},
+{
   "_id": {
     "$oid": "60047da844fca02954365b23"
   },
@@ -953,7 +965,8 @@
   "userReviews": [],
   "__v": 1,
   "status": true
-},{
+},
+{
   "_id": {
     "$oid": "60047dd05dfd6030885f581a"
   },
@@ -1019,7 +1032,8 @@
   "userReviews": [],
   "__v": 1,
   "status": true
-},{
+},
+{
   "_id": {
     "$oid": "60047e04fa0e631270eff380"
   },
@@ -1085,7 +1099,8 @@
   "userReviews": [],
   "__v": 1,
   "status": true
-},{
+},
+{
   "_id": {
     "$oid": "60047e2da6ccc5365c4b9fd3"
   },
@@ -1151,7 +1166,8 @@
   "userReviews": [],
   "__v": 1,
   "status": true
-},{
+},
+{
   "_id": {
     "$oid": "60047e53b5ceaa0a34c7e6aa"
   },
@@ -1217,7 +1233,8 @@
   "userReviews": [],
   "__v": 1,
   "status": true
-},{
+},
+{
   "_id": {
     "$oid": "60047e8aa4c47840800406cf"
   },
@@ -1225,7 +1242,7 @@
   "description": "Bạn có thể học mọi thứ về Management qua khóa học của chúng tôi",
   "evaluationPoint": 0,
   "numberOfStudent": 0,
-  "numberOfView": 12,
+  "numberOfView": 14,
   "tuition": 10,
   "uploadDate": {
     "$date": "2021-01-17T18:14:34.049Z"
@@ -1283,7 +1300,8 @@
   "userReviews": [],
   "__v": 1,
   "status": true
-},{
+},
+{
   "_id": {
     "$oid": "60047f3899dbc32298745e80"
   },
