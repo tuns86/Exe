@@ -113,6 +113,20 @@ Router.post("/register", async function (req, res) {
   res.redirect("/users/login");
 });
 
+Router.post("/login", (req, res, next) => {
+  passport.authenticate("local", (err, user, info) => {
+    if (err) return next(err);
+    if (!user) {
+      req.flash("error_msg", "Invalid account");
+      return res.redirect("/users/login");
+    }
+    req.logIn(user, (err) => {
+      if (err) return next(err);
+      return res.redirect("/");
+    });
+  })(req, res, next);
+});
+
 
 // Router.post("/otp", async (req, res) => {
 //   const otpNumber = req.body.otpNumber;
@@ -191,10 +205,12 @@ Router.post("/register", async function (req, res) {
 //   }
 // });
 
-Router.get("/logout", (req, res) => {
-  req.flash("success_msg", "You now log out");
-  req.logout();
-  res.redirect("/");
+Router.get("/logout", (req, res, next) => {
+  req.logout(err => {
+    if (err) return next(err);
+    req.flash("success_msg", "You now log out");
+    res.redirect("/");
+  });
 });
 
 Router.get("/account", ensureAuthenticated, (req, res) => {
