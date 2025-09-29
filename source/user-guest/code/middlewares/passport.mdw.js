@@ -1,10 +1,10 @@
-//const passport = require('passport');
+const passport = require('passport');
 
-//module.exports = function(app) {
+module.exports = function(app) {
     //Pasport config
-//    require('../config/passport.config')(passport);
+   require('../config/passport.config')(passport);
 
     //Passport middlewares
-//    app.use(passport.initialize());
-//    app.use(passport.session());    
-//}
+   app.use(passport.initialize());
+   app.use(passport.session());    
+}
