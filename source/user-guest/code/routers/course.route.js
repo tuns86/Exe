@@ -14,7 +14,7 @@ const paypal = require('paypal-rest-sdk');
 
 const LocalUser = require('../models/LocalUser.model');
 
-const FaceBookUser = require('../models/FaceBookUser.model');
+// const FaceBookUser = require('../models/FaceBookUser.model');
 
 const {
     ensureAuthenticated,
@@ -87,14 +87,10 @@ console.log("📌 Sau populate:", course.idLecturer);
         const localUser = await LocalUser.findOne({
             _id: course.userReviews[i].idUser
         });
-        if (localUser == null) {
-            const facebookUser = await FaceBookUser.findOne({
-                _id: course.userReviews[i].idUser
-            });
-            userReviews.push(facebookUser);
-            continue;
+
+        if (localUser) {
+            userReviews.push(localUser);
         }
-        userReviews.push(localUser);
     }
     
     //Đánh dấu những video đã học
