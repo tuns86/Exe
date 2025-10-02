@@ -24,29 +24,9 @@ const fs = require("fs");
 const path = require("path");
 
 const multer = require("multer");
-// const FaceBookUser = require("../models/FaceBookUser.model");
 
 const cloudinary = require("cloudinary").v2;
 const Course = require("../models/Course.model");
-
-//Xác thục bởi facebook
-// Router.get(
-//   "/auth/facebook",
-//   passport.authenticate("facebook", {
-//     scope: ["email", "user_photos"],
-//   })
-// );
-
-//Redirect từ facebook => web browser
-// Router.get(
-//   "/auth/facebook/callback",
-//   passport.authenticate("facebook", {
-//     failureRedirect: "/",
-//   }),
-//   function (req, res, next) {
-//     res.redirect("/");
-//   }
-// );
 
 //GET LOGIN
 Router.get("/login", forwardAuthenticated, (req, res) => {
@@ -100,7 +80,6 @@ Router.post("/register", async function (req, res) {
     });
   }
 
-  // ✅ Thay vì gửi Gmail OTP → tạo user luôn và xác thực mặc định
   let newUser = new LocalUser();
   newUser.name = name;
   newUser.email = email;
@@ -127,90 +106,10 @@ Router.post("/login", (req, res, next) => {
   })(req, res, next);
 });
 
-
-// Router.post("/otp", async (req, res) => {
-//   const otpNumber = req.body.otpNumber;
-//   const localUser = await LocalUser.findOne({
-//     email: req.session.currentEmail,
-//   });
-//   if (otpNumber == localUser.otpNumber) {
-//     LocalUser.findOne({
-//       email: req.session.currentEmail,
-//     }).then((user) => {
-//       user.isAuth = true;
-//       user.save();
-//       req.flash("success_msg", "OTP correct! You can log in now");
-//       res.redirect("/users/login");
-//     });
-//   } else {
-//     const errors = [
-//       {
-//         msg: "OTP not correct!!",
-//       },
-//     ];
-//     res.render("./user/otp", {
-//       errors,
-//       isAuthenticated: req.isAuthenticated(),
-//       user: req.user
-//     });
-//   }
-// });
-
-// Router.post("/login", async (req, res, next) => {
-//   let { email, password } = req.body;
-
-//   const user = await LocalUser.findOne({
-//     email: email
-//   });
-
-//   if (user != null) {
-//     bcrypt.compare(password, user.password).then((isMatch) => {
-//       if (isMatch) {
-//         if (user.status == false) {
-//           req.flash('error_msg', 'Your account has been blocked');
-//           res.render('./user/login', {
-//             isAuthenticated: req.isAuthenticated(),
-//             user: req.user
-//           })
-//         }
-//         else {
-//           if (user.isAuth) {
-//             passport.authenticate("local", {
-//               failureRedirect: "/users/login",
-//               successRedirect: "/",
-//             })(req, res, next);
-//           } else {
-//             req.session.currentEmail = email;
-//             req.flash("error_msg", "Please fill correct OTP to login");
-//             res.render("./user/otp", {
-//               isAuthenticated: req.isAuthenticated(),
-//               user: req.user
-//             });
-//           }
-//         }
-//       } else {
-//         req.flash("error_msg", "Invalid account");
-//         res.render("./user/login", {
-//           isAuthenticated: req.isAuthenticated(),
-//           user: req.user
-//         });
-//       }
-//     });
-//   } else {
-//     req.flash("error_msg", "Invalid account");
-//     res.render("./user/login", {
-//       isAuthenticated: req.isAuthenticated(),
-//       user: req.user
-//     });
-//   }
-// });
-
-Router.get("/logout", (req, res, next) => {
-  req.logout(err => {
-    if (err) return next(err);
-    req.flash("success_msg", "You now log out");
-    res.redirect("/");
-  });
+Router.get("/logout", (req, res) => {
+  req.logout(); // không callback
+  req.flash("success_msg", "You are logged out");
+  res.redirect("/");
 });
 
 Router.get("/account", ensureAuthenticated, (req, res) => {

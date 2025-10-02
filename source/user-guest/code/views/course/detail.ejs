@@ -261,12 +261,11 @@
           <i class="star2 fa fa-star"></i>
           <i class="star3 fa fa-star"></i>
           <i class="star4 fa fa-star"></i>
-          <span class="star5 text-warning" style="padding-left: 5px"
-            ><strong
+          <!-- <span class="star5 text-warning" style="padding-left: 5px">
+            <strong
               ><%= course.evaluationPoint %> (<%= course.userEvaluations.length
-              %> đánh giá)</strong
-            ></span
-          >
+              %> đánh giá)</strong>
+          </span> -->
           <p><%= course.uploadDate.toDateString() %></p>
           <p>
             Giảng viên:
@@ -321,7 +320,7 @@
           >Nội dung</a
         >
       </li>
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a
           class="nav-link"
           id="teacher-tab"
@@ -359,7 +358,7 @@
           style="font-size: 20px"
           >FAQ</a
         >
-      </li>
+      </li> -->
     </ul>
 
     <div id="couser-intro" class="text-container">
@@ -472,7 +471,7 @@
         <div class="col-sm-2">
           <img src="<%= course.idLecturer.avatar %>" alt="" class="rounded-circle teacher-avt" />
         </div>
-        <div class="col-sm-6 info">
+        <!-- <div class="col-sm-6 info">
           <i class="fas fa-star text-warning"></i>
           <span style="margin-left: 8px">4.5 Instructor Rating</span><br />
           <i class="fas fa-user-graduate text-warning"></i>
@@ -480,14 +479,14 @@
 
           <i class="fas fa-play-circle text-warning"></i>
           <span style="margin-left: 8px">20 Course</span><br />
-        </div>
+        </div> -->
         <p style="padding-top: 20px">
           <%= course.idLecturer.description %> 
         </p>
       </div>
     </div>
 
-    <div id="student-feedback" class="text-container">
+    <!-- <div id="student-feedback" class="text-container">
       <h2 class="heading-xl">Phản hồi của học sinh</h2>
       <div class="row student-response">
         <div class="card">
@@ -534,8 +533,8 @@
           </div>
         </div>
       </div>
-      <!-- Mục bạn đánh giá -->
-    <% if (isAuthenticated && isEvaluate && isPaid) { %>
+
+      <% if (isAuthenticated && isEvaluate && isPaid) { %>
     <div class="rating-star">
       <h3>Bạn đã đánh giá</h3>
       <div class="star">
@@ -550,7 +549,7 @@
         Đánh giá lại
       </button>
     </div>
-    <!-- Mục đánh giá môn học -->
+
     <% } %> <% if (isAuthenticated && !isEvaluate && isPaid) { %>
     <div>
       <h3>Đánh giá</h3>
@@ -605,7 +604,7 @@
 
     <div id="faq" class="text-container" style="border: 0px">
       <h2 class="heading-xl">FAQ</h2>
-    </div>
+    </div> -->
   </div>
 
   <!-- Bấm nút comment -->
