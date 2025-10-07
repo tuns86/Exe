@@ -1,17 +1,13 @@
-const index = require('../routers/index.route');
-
-const users = require('../routers/users.route');
-
-const course = require('../routers/course.route');
-
-const payment = require('../routers/payment.route');
-
-const courses = require('../routers/courses.route');
-
-module.exports = function(app) {
-    app.use('/', index);
-    app.use('/users', users);
-    app.use('/course', course);
-    app.use('/payment', payment);
-    app.use('/courses', courses);
-}
+// ./middlewares/route.mdw.js
+module.exports = function (app) {
+    app.use('/', require('../routers/index.route'));
+    app.use('/users', require('../routers/users.route'));
+    app.use('/course', require('../routers/course.route'));
+    app.use('/courses', require('../routers/courses.route'));
+    app.use('/payment', require('../routers/payment.route'));
+  
+    // ✅ Mount admin KHÔNG gắn ensureAdmin
+    const adminRouter = require('../routers/admin.route');
+    app.use('/admin', adminRouter);
+  };
+  

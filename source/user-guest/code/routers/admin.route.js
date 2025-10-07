@@ -33,6 +33,15 @@ const {
   forwardAuthenticated
 } = require("../config/auth_admin");
 
+router.use((req, res, next) => {
+  res.locals.layout = 'admin/layout'; // => views/admin/layout.ejs
+  next();
+});
+
+// ✅ Route gốc cho admin (điểm vào chính)
+router.get('/', (req, res) => {
+  res.redirect('/admin/course/coursesList');
+});
 
 // Home Page
 
@@ -700,7 +709,7 @@ router.get("/login",forwardAuthenticated,async function (req, res) {
 router.get("/logout", (req, res) => {
   req.logout();
   req.flash("success_msg", "You are logged out");
-  res.redirect("/admin/login");
+  res.redirect("/");
 });
 
 router.get("/register", function (req, res) {

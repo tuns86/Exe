@@ -53,6 +53,6 @@ const LocalUserSchema = mongoose.Schema({
     }
 });
 
-const LocalUser = mongoose.model('localusers', LocalUserSchema);
+const LocalUser = mongoose.model('Localuser', LocalUserSchema);
 
 module.exports = LocalUser;

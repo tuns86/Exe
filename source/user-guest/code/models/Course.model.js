@@ -36,7 +36,7 @@ const CourseSchema = mongoose.Schema({
     },
     idLecturer: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'lecturers'
+        ref: 'Lecturer'
     },
     uploadDate: {
         type: Date,

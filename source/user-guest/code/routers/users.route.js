@@ -93,18 +93,44 @@ Router.post("/register", async function (req, res) {
 });
 
 Router.post("/login", (req, res, next) => {
-  passport.authenticate("local", (err, user, info) => {
+  // Thử đăng nhập bằng strategy 'admin' trước
+  passport.authenticate("admin", (err, user, info) => {
     if (err) return next(err);
-    if (!user) {
-      req.flash("error_msg", "Invalid account");
-      return res.redirect("/users/login");
+
+    if (user) {
+      return req.logIn(user, (err2) => {
+        if (err2) return next(err2);
+        return res.redirect("/admin/homepage"); // admin -> trang admin
+      });
     }
-    req.logIn(user, (err) => {
-      if (err) return next(err);
-      return res.redirect("/");
-    });
+
+    // Không phải admin → thử lecturer
+    passport.authenticate("lecturer", (err3, user3, info3) => {
+      if (err3) return next(err3);
+
+      if (user3) {
+        return req.logIn(user3, (err4) => {
+          if (err4) return next(err4);
+          return res.redirect("/admin/homepage"); // lecturer -> chung trang admin
+        });
+      }
+
+      // Không phải admin/lecturer → thử user thường
+      passport.authenticate("customer", (err5, user2, info2) => {
+        if (err5) return next(err5);
+        if (!user2) {
+          req.flash("error_msg", info2?.message || "Invalid account");
+          return res.redirect("/users/login");
+        }
+        req.logIn(user2, (err6) => {
+          if (err6) return next(err6);
+          return res.redirect("/"); // user -> trang user
+        });
+      })(req, res, next);
+    })(req, res, next);
   })(req, res, next);
 });
+
 
 Router.get("/logout", (req, res) => {
   req.logout(); // không callback

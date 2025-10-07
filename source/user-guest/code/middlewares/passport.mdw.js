@@ -1,10 +1,8 @@
+// ./middlewares/passport.mdw.js
 const passport = require('passport');
 
-module.exports = function(app) {
-    //Pasport config
-   require('../config/passport.config')(passport);
-
-    //Passport middlewares
-   app.use(passport.initialize());
-   app.use(passport.session());    
-}
+module.exports = function (app) {
+  require('../config/passport.config')(passport);
+  app.use(passport.initialize());
+  app.use(passport.session());
+};

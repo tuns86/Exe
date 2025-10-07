@@ -1,9 +1,10 @@
 const mongoose = require('mongoose');
 
-const LecturerSchema = mongoose.Schema({
+const AdminSchema = mongoose.Schema({
     name: {
         type: String,
         required: true,
+        default: 'admin'
     },
     email: {
         type: String,
@@ -15,9 +16,8 @@ const LecturerSchema = mongoose.Schema({
     },
     gender: {
         type: String,
-        required: true,
     },
-    date: {
+    date_added: {
         type: Date,
         default: Date.now()
     },
@@ -25,27 +25,16 @@ const LecturerSchema = mongoose.Schema({
         type: String,
         default: '/public/avatar/default/avatar.png'
     },
-    description: {
-        type: String,
-        default: 'Đây là miêu tả giáo viên'
-    },
     isAuth: {
         type: Boolean,
         default: false
     },
-    otpNumber: {
-        type: String
+    roll: {
+        type: String,
+        default: false
     },
-    status: {
-        type: Boolean,
-        default: true,
-    },
-    idCourses: {
-        type: [mongoose.Schema.ObjectId],
-        ref: 'courses'
-    }
 });
 
-const Lecturer = mongoose.model('lecturers', LecturerSchema);
+const Lecturer = mongoose.model('Admin', AdminSchema);
 
 module.exports = Lecturer;
