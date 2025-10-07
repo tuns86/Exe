@@ -15,7 +15,7 @@ require('./middlewares/passport.mdw')(app);
 require('./middlewares/local.mdw')(app);
 require('./middlewares/view.mdw')(app);require('./middlewares/route.mdw')(app);
 require('./middlewares/error.mdw')(app);
-require('./middlewares/paypal.mdw')(app);
+require('./middlewares/vietqr.mdw')(app);
 require('./middlewares/cloudinary.mdw')(app);
 
 app.listen(8000);
