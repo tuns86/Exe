@@ -31,15 +31,15 @@ const Course = require("../models/Course.model");
 //GET LOGIN
 Router.get("/login", forwardAuthenticated, (req, res) => {
   res.render("./user/login", {
-      isAuthenticated: req.isAuthenticated()
+    isAuthenticated: req.isAuthenticated(),
   });
 });
 
 //GET register
 Router.get("/register", forwardAuthenticated, (req, res) => {
   res.render("./user/register", {
-      isAuthenticated: req.isAuthenticated(),
-      user: req.user
+    isAuthenticated: req.isAuthenticated(),
+    user: req.user,
   });
 });
 
@@ -65,7 +65,7 @@ Router.post("/register", async function (req, res) {
     return res.render("./user/register", {
       isAuthenticated: req.isAuthenticated(),
       errors,
-      user: req.user
+      user: req.user,
     });
   }
 
@@ -76,7 +76,7 @@ Router.post("/register", async function (req, res) {
     return res.render("./user/register", {
       isAuthenticated: req.isAuthenticated(),
       errors,
-      user: req.user
+      user: req.user,
     });
   }
 
@@ -117,7 +117,7 @@ Router.get("/account", ensureAuthenticated, (req, res) => {
     isLocalAccount: req.user.password != undefined ? true : false,
     user: req.user,
     isAuthenticated: req.isAuthenticated(),
-    user: req.user
+    user: req.user,
   });
 });
 
@@ -241,11 +241,13 @@ Router.post("/:nameCourse/updateLearnedVideo", async (req, res) => {
     name: req.params.nameCourse,
   });
 
-  //Đánh dấu video đã được xem 
+  //Đánh dấu video đã được xem
   let flag = false;
   for (let i = 0; i < req.user.purchasedCourses.length; i++) {
-    if (req.user.purchasedCourses[i].idCourse.toString() == course._id
-        && req.user.purchasedCourses[i].learnedVideos.indexOf(videoIndex) == -1) {
+    if (
+      req.user.purchasedCourses[i].idCourse.toString() == course._id &&
+      req.user.purchasedCourses[i].learnedVideos.indexOf(videoIndex) == -1
+    ) {
       req.user.purchasedCourses[i].learnedVideos.push(videoIndex);
       req.user.save();
       res.json(true);
@@ -256,7 +258,6 @@ Router.post("/:nameCourse/updateLearnedVideo", async (req, res) => {
   if (!flag) {
     res.json(false);
   }
-  
 });
 
 module.exports = Router;

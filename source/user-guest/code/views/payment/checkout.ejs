@@ -111,27 +111,21 @@
 
           async function checkPayment() {
             try {
-              const res = await fetch(
-                `/payment/check/${amount}`
-              );
+              const res = await fetch(`/payment/check/${amount}`);
               const data = await res.json();
 
               if (data.matched) {
                 btnConfirm.disabled = false;
-                btnConfirm.innerText = `✅ Đã phát hiện thanh toán ${data.price}đ – Nhấn để xác nhận`;
+                btnConfirm.innerText = `Đã phát hiện thanh toán – Nhấn để xác nhận`;
               } else {
-                console.log(
-                  "Chưa thấy thanh toán hợp lệ:",
-                  data.desc,
-                  data.price
-                );
+                console.log("Chưa thấy thanh toán hợp lệ:");
               }
             } catch (err) {
               console.error("Lỗi khi kiểm tra thanh toán:", err);
             }
           }
 
-          setInterval(checkPayment, 1000);
+          setInterval(checkPayment, 2000);
         </script>
       </div>
     </div>

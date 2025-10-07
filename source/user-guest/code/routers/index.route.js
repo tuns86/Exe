@@ -49,7 +49,7 @@ Router.get("/", async (req, res) => {
     mostViewCourses: mostViewCourses,
     latestCourses: latestCourses,
     mostSignUpCategory: mostSignUpCategory,
-    user: req.user
+    user: req.user,
   });
 });
 
@@ -90,7 +90,7 @@ Router.get("/my-wish-list", ensureAuthenticated, async (req, res) => {
   numberOfPage = Math.ceil(courses.length / 2);
 
   //Lấy ra đúng 5 khóa học
-  courses = courses.slice((page-1) * 5, (page - 1) * 5 + 5);
+  courses = courses.slice((page - 1) * 5, (page - 1) * 5 + 5);
 
   await res.render("./courses/list-courses", {
     isAuthenticated: req.isAuthenticated(),
@@ -99,7 +99,7 @@ Router.get("/my-wish-list", ensureAuthenticated, async (req, res) => {
     page: page,
     isFilter: false,
     numberOfPage: numberOfPage,
-    user: req.user
+    user: req.user,
   });
 });
 
@@ -139,8 +139,8 @@ Router.get("/my-courses", ensureAuthenticated, async (req, res) => {
   }
   numberOfPage = Math.ceil(courses.length / 5);
 
-  //Lấy ra đúng 5 khóa học 
-  courses = courses.slice((page - 1) * 5, (page - 1) *5 + 5);
+  //Lấy ra đúng 5 khóa học
+  courses = courses.slice((page - 1) * 5, (page - 1) * 5 + 5);
 
   //Render trang danh sách khóa học
   await res.render("./courses/list-courses", {
@@ -150,7 +150,7 @@ Router.get("/my-courses", ensureAuthenticated, async (req, res) => {
     page: page,
     isFilter: false,
     numberOfPage: numberOfPage,
-    user: req.user
+    user: req.user,
   });
 });
 

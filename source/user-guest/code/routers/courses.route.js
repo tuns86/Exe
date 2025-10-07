@@ -50,7 +50,7 @@ Router.get("/search", async (req, res) => {
     page: page,
     isFilter: true, //List khóa học này cần filter
     numberOfPage: numberOfPage,
-    user: req.user
+    user: req.user,
   });
 });
 
@@ -102,7 +102,7 @@ Router.get("/:categoryName", async (req, res) => {
         page: page,
         isFilter: false, //List khóa học này không cần filter
         numberOfPage: numberOfPage,
-        user: req.user
+        user: req.user,
       });
     });
 });
@@ -131,7 +131,7 @@ Router.get("/:categoryName/:topicName", async (req, res) => {
     page: page,
     isFilter: false, //List khóa học này không cần filter
     numberOfPage: numberOfPage,
-    user: req.user
+    user: req.user,
   });
 });
 
