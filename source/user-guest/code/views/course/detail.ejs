@@ -402,63 +402,38 @@
     <div id="couser-content" class="text-container">
       <h2 class="heading-xl">Giáo trình của khóa học như sau:</h2>
       <div class="document">
-        <% for( let i = 0; i < course.videos.length; i++ ) { %>
-        <div class="row">
+        <% course.videos.forEach((v, i) => { %>
+        <div class="row align-items-center border-bottom py-2">
           <div class="col-sm-8">
-            <ul>
+            <ul class="m-0">
               <i class="fa fa-play-circle"></i>
-              <a href="#" style="color: black">
-                <%= course.videos[i].name %>
-              </a>
+              <span style="color: black"><%= i + 1 %>. <%= v.name %></span>
             </ul>
           </div>
-          <!-- Đã mua và chưa xem -->
-          <% if (isPaid) { %> <% if (learnedVideos.indexOf(i) != -1) { %>
-          <div class="col-sm-4 text-left">
-            <button
-              data-index="<%= i%>"
-              data-isLearned="true"
-              type="button"
-              class="btn btn-secondary btn-playVideo"
-            >
-              Đã xem
-            </button>
+
+          <div class="col-sm-4 text-end">
+            <% if (isPaid) { %>
+              <!-- ✅ Đã mua: xem full -->
+              <a href="/course/<%= course.name %>/watch/<%= i %>" class="btn btn-outline-success btn-sm">
+                ▶ Xem video
+              </a>
+            <% } else { %>
+              <!-- ❌ Chưa mua: chỉ xem được 1 video demo -->
+              <% if (i === course.previewIndex[0]) { %>
+                <a href="/course/<%= course.name %>/watch/<%= i %>" class="btn btn-outline-primary btn-sm">
+                  👁 Xem thử
+                </a>
+              <% } else { %>
+                <button class="btn btn-outline-secondary btn-sm" disabled>
+                  🔒 Mua khóa học để xem
+                </button>
+              <% } %>
+            <% } %>
           </div>
-          <% } %> <% } %>
-          <!-- Đã mua và xem rồi -->
-          <% if (isPaid) { %> <% if (learnedVideos.indexOf(i) ==-1) { %>
-          <div class="col-sm-4 text-left">
-            <button
-              data-index="<%= i%>"
-              data-isLearned="false"
-              type="button"
-              class="btn btn-secondary btn-playVideo"
-            >
-              Xem video
-            </button>
-          </div>
-          <% } %> <% } %>
-          <!-- Chưa mua -->
-          <% if (!isPaid && course.previewIndex.indexOf(i) != -1) { %>
-          <div class="col-sm-4 text-left">
-            <button type="button" class="btn btn-secondary btn-playVideo">
-              Preview
-            </button>
-          </div>
-          <% } %>
-          <video
-            id="my-video"
-            class="video-js video col-sm-4"
-            controls
-            preload="auto"
-            width="640"
-            height="264"
-          >
-            <source src="<%= course.videos[i].source %>" type="video/mp4" />
-          </video>
         </div>
-        <% } %>
+        <% }) %>
       </div>
+
     <div id="couser-teacher" class="text-container">
       <h2 class="heading-xl">Instructor</h2>
       <div class="heading-lg">

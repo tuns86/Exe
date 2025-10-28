@@ -182,4 +182,51 @@ Router.get("/:nameCourse/lessions", ensureAuthenticated, async (req, res) => {
   });
 });
 
+// Trang xem video riêng
+Router.get("/:nameCourse/watch/:index", ensureAuthenticated, async (req, res) => {
+  const nameCourse = req.params.nameCourse;
+  const index = parseInt(req.params.index);
+
+  const course = await Course.findOne({ name: nameCourse })
+    .populate("idLecturer")
+    .populate("idCourseTopic");
+
+  if (!course) return res.status(404).send("Course not found");
+
+  // Kiểm tra người dùng có mua khóa học chưa
+  let isPaid = false;
+  let learnedVideos = [];
+  if (req.user) {
+    for (const purchased of req.user.purchasedCourses) {
+      if (purchased.idCourse.toString() === course._id.toString()) {
+        isPaid = true;
+        learnedVideos = purchased.learnedVideos;
+        break;
+      }
+    }
+  }
+
+  const video = course.videos[index];
+
+  // Nếu chưa mua và không phải video preview => chặn
+  const isPreview =
+    Array.isArray(course.previewIndex) &&
+    course.previewIndex.includes(index);
+
+  if (!isPaid && !isPreview) {
+    return res.redirect(`/payment/${course.name}/checkout`);
+  }
+
+  res.render("./course/watch", {
+    isAuthenticated: req.isAuthenticated(),
+    user: req.user,
+    course,
+    video,
+    index,
+    isPaid,
+    learnedVideos,
+  });
+});
+
+
 module.exports = Router;
