@@ -64,7 +64,7 @@ Router.get("/check/:amount", async (req, res) => {
     }
 
     const response = await fetch(
-      "https://script.google.com/macros/s/AKfycbxISPBjvmjim0S7_BoQR9tiJB1N9bsr5PyFbjshIsA_bm2Ap3r1x6MzMFpwRl0VpWKZ/exec"
+      "https://script.google.com/macros/s/AKfycbzWgUOMHhjm0zbmTqlM46Hyk8rTpPQg3rmVdc1XY5HUpbC7k91qFemg5wyV8RkYTKYV/exec"
     );
     const data = await response.json();
 
