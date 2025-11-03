@@ -1,0 +1,133 @@
+<style>
+  .container-wrap {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 48px;
+  }
+
+  .navbar-collapse {
+    flex-grow: 0;
+  }
+
+  .navbar-collapse-right {
+    margin-left: 750px;
+  }
+
+  .footer-container {
+    padding-top: 30px;
+    padding-bottom: 20px;
+    font-size: 12px;
+    text-align: center;
+  }
+
+  .price-payment {
+    border-bottom: 1px solid #cacbcc;
+    font-size: 16px;
+  }
+
+  .paypal {
+    padding-left: 20px;
+    width: 20%;
+  }
+
+  .row {
+    margin-left: 3px;
+    margin-right: 3px;
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+    border-collapse: separate;
+  }
+
+  .agree-service {
+    font-size: 12px;
+    line-height: 19px;
+    margin-bottom: 8px;
+  }
+
+  .img-payment {
+    width: 100%;
+  }
+  .bill .bill-label {
+    font-size: 20px;
+    font-weight: 600;
+  }
+  .bill .bill-price {
+    font-size: 20px;
+  }
+  .bill .paypal {
+    float: right;
+    margin-right: 72px;
+  }
+  .agree-service {
+    padding-left: 15px;
+    font-size: 15px;
+  }
+  #btnPay {
+    margin-top: 10px;
+    width: 100%;
+  }
+</style>
+<div class="container-wrap">
+  <div class="row mt-5">
+    <div class="col-md-6 m-auto">
+      <div class="card card-body">
+        <h1 class="text-center mb-3">
+          <i class="fas fa-qrcode"></i> Thanh toán khóa học
+        </h1>
+
+        <div class="text-center mb-3">
+          <strong><%= course.name %></strong><br />
+          <span><%= course.tuition %> VNĐ</span>
+        </div>
+
+        <div class="text-center">
+          <p>Quét mã VietQR để thanh toán:</p>
+          <img
+            src="<%= qrUrl %>"
+            alt="QR Code"
+            style="max-width: 300px; border: 1px solid #ccc; border-radius: 8px"
+          />
+        </div>
+
+        <form
+          id="confirmForm"
+          action="/payment/<%= course.name %>/confirm"
+          method="POST"
+        >
+          <button
+            id="btnConfirm"
+            type="submit"
+            class="btn btn-success btn-block"
+            disabled
+          >
+            Đang kiểm tra thanh toán...
+          </button>
+        </form>
+
+        <script>
+          const btnConfirm = document.getElementById("btnConfirm");
+          const amount = "<%= course.tuition %>";
+
+          async function checkPayment() {
+            try {
+              const res = await fetch(`/payment/check/${amount}`);
+              const data = await res.json();
+
+              if (data.matched) {
+                btnConfirm.disabled = false;
+                btnConfirm.innerText = `Đã phát hiện thanh toán – Nhấn để xác nhận`;
+              } else {
+                console.log("Chưa thấy thanh toán hợp lệ:");
+              }
+            } catch (err) {
+              console.error("Lỗi khi kiểm tra thanh toán:", err);
+            }
+          }
+
+          setInterval(checkPayment, 2000);
+        </script>
+      </div>
+    </div>
+  </div>
+</div>

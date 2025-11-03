@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title><%= course.name %> - Video <%= index + 1 %></title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+      body {
+        background-color: #f8f9fa;
+      }
+
+      .container-flex {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 1rem;
+        max-width: 1400px;
+        margin: 30px auto;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+      }
+
+      /* Sidebar (taskbar) */
+      .sidebar {
+        width: 320px;
+        background: #f1f3f5;
+        border-right: 1px solid #dee2e6;
+        padding: 20px;
+        overflow-y: auto;
+        max-height: 90vh;
+      }
+
+      .sidebar h5 {
+        font-weight: 600;
+        margin-bottom: 15px;
+      }
+
+      .video-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 12px;
+        border-radius: 8px;
+        margin-bottom: 6px;
+        transition: 0.2s;
+        text-decoration: none;
+        color: #333;
+      }
+
+      .video-item:hover {
+        background: #e9ecef;
+        text-decoration: none;
+      }
+
+      .video-item.active {
+        background: #198754;
+        color: white;
+        font-weight: 600;
+      }
+
+      .video-item i {
+        margin-right: 8px;
+      }
+
+      /* Main video area */
+      .watch-main {
+        flex-grow: 1;
+        padding: 30px;
+      }
+
+      video {
+        width: 100%;
+        border-radius: 8px;
+      }
+
+      .nav-buttons {
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      @media (max-width: 992px) {
+        .container-flex {
+          flex-direction: column;
+        }
+        .sidebar {
+          width: 100%;
+          max-height: 300px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-flex">
+      <!-- Sidebar bên phải -->
+      <div class="sidebar">
+        <h5><i class="fa fa-list"></i> Danh sách video</h5>
+
+        <% course.videos.forEach((v, i) => { %>
+          <% if (isPaid || i === course.previewIndex[0]) { %>
+            <a href="/course/<%= course.name %>/watch/<%= i %>" 
+               class="video-item <%= i === index ? 'active' : '' %>">
+              <div>
+                <i class="fa fa-play-circle"></i>
+                <%= i + 1 %>. <%= v.name %>
+              </div>
+              <% if (i === index) { %><i class="fa fa-circle-play"></i><% } %>
+            </a>
+          <% } else { %>
+            <div class="video-item text-muted">
+              <div>
+                <i class="fa fa-lock"></i>
+                <%= i + 1 %>. <%= v.name %>
+              </div>
+              <small>🔒</small>
+            </div>
+          <% } %>
+        <% }) %>
+      </div>
+
+      <!-- Khu vực xem video -->
+      <div class="watch-main">
+        <h3><%= course.name %></h3>
+        <h6 class="text-muted">Bài <%= index + 1 %>: <%= video.name %></h6>
+
+        <video id="course-video" controls preload="auto">
+          <source src="<%= video.source %>" type="video/mp4" />
+          Trình duyệt của bạn không hỗ trợ video.
+        </video>
+
+        <div class="nav-buttons">
+          <% if (index > 0) { %>
+            <a href="/course/<%= course.name %>/watch/<%= index - 1 %>" class="btn btn-outline-primary">
+              &laquo; Trước
+            </a>
+          <% } else { %>
+            <div></div>
+          <% } %>
+
+          <% if (index < course.videos.length - 1) { %>
+            <% if (isPaid || index + 1 === course.previewIndex[0]) { %>
+              <a href="/course/<%= course.name %>/watch/<%= index + 1 %>" class="btn btn-outline-primary">
+                Kế tiếp &raquo;
+              </a>
+            <% } %>
+          <% } %>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const videoEl = document.getElementById("course-video");
+      // Gửi API lưu tiến trình khi xem > 80%
+      videoEl.addEventListener("timeupdate", () => {
+        if (videoEl.duration && videoEl.currentTime / videoEl.duration > 0.8) {
+          fetch(`/users/<%= course.name %>/updateLearnedVideo?index=<%= index %>`, { method: "POST" });
+        }
+      });
+    </script>
+  </body>
+</html>

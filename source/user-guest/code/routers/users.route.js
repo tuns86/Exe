@@ -1,0 +1,263 @@
+const express = require("express");
+
+const Router = express.Router();
+
+const passport = require("passport");
+
+const {
+  ensureAuthenticated,
+  forwardAuthenticated,
+} = require("../config/auth.config");
+
+const LocalUser = require("../models/LocalUser.model");
+
+const nodemailer = require("nodemailer");
+
+// const { google } = require("googleapis");
+
+// const OAuth2 = google.auth.OAuth2;
+
+const bcrypt = require("bcryptjs");
+
+const fs = require("fs");
+
+const path = require("path");
+
+const multer = require("multer");
+
+const cloudinary = require("cloudinary").v2;
+const Course = require("../models/Course.model");
+
+//GET LOGIN
+Router.get("/login", forwardAuthenticated, (req, res) => {
+  res.render("./user/login", {
+    isAuthenticated: req.isAuthenticated(),
+  });
+});
+
+//GET register
+Router.get("/register", forwardAuthenticated, (req, res) => {
+  res.render("./user/register", {
+    isAuthenticated: req.isAuthenticated(),
+    user: req.user,
+  });
+});
+
+//POST register
+//POST register
+Router.post("/register", async function (req, res) {
+  const { name, email, password, password2, gender } = req.body;
+
+  let errors = [];
+
+  // Kiểm tra dữ liệu đầu vào
+  if (!name || !email || !password || !password2) {
+    errors.push({ msg: "Please enter all fields" });
+  }
+  if (password != password2) {
+    errors.push({ msg: "Passwords do not match" });
+  }
+  if (password.length < 6) {
+    errors.push({ msg: "Password must be at least 6 characters" });
+  }
+
+  if (errors.length > 0) {
+    return res.render("./user/register", {
+      isAuthenticated: req.isAuthenticated(),
+      errors,
+      user: req.user,
+    });
+  }
+
+  // Kiểm tra email đã tồn tại chưa
+  const existingUser = await LocalUser.findOne({ email: email });
+  if (existingUser) {
+    errors.push({ msg: "Account existed, Try another email" });
+    return res.render("./user/register", {
+      isAuthenticated: req.isAuthenticated(),
+      errors,
+      user: req.user,
+    });
+  }
+
+  let newUser = new LocalUser();
+  newUser.name = name;
+  newUser.email = email;
+  newUser.password = await bcrypt.hash(password, 10);
+  newUser.gender = gender;
+  newUser.isAuth = true; // Cho user đã xác thực luôn
+  await newUser.save();
+
+  req.flash("success_msg", "Đăng ký thành công, bạn có thể đăng nhập ngay!");
+  res.redirect("/users/login");
+});
+
+Router.post("/login", (req, res, next) => {
+  passport.authenticate("local", (err, user, info) => {
+    if (err) return next(err);
+    if (!user) {
+      req.flash("error_msg", "Invalid account");
+      return res.redirect("/users/login");
+    }
+    req.logIn(user, (err) => {
+      if (err) return next(err);
+      return res.redirect("/");
+    });
+  })(req, res, next);
+});
+
+Router.get("/logout", (req, res) => {
+  req.logout(); // không callback
+  req.flash("success_msg", "You are logged out");
+  res.redirect("/");
+});
+
+Router.get("/account", ensureAuthenticated, (req, res) => {
+  res.render("./user/account", {
+    isLocalAccount: req.user.password != undefined ? true : false,
+    user: req.user,
+    isAuthenticated: req.isAuthenticated(),
+    user: req.user,
+  });
+});
+
+//Kiểm tra cập nhật thông tin cá nhân
+Router.post("/updateInfor", async (req, res) => {
+  let { name, oldPassword, newPassword, confPassword, gender } = req.body;
+  let errors = [];
+  //Nếu là localaccount
+  if (req.user.password != undefined) {
+    if (!name || !newPassword || !confPassword || !gender || !oldPassword) {
+      errors.push({
+        msg: "Please enter all fields",
+      });
+    } else {
+      if (newPassword != confPassword) {
+        errors.push({
+          msg: "Passwords do not match",
+        });
+      }
+
+      if (newPassword.length < 6) {
+        errors.push({
+          msg: "Password must be at least 6 characters",
+        });
+      }
+
+      await bcrypt.compare(oldPassword, req.user.password).then((isMatch) => {
+        if (!isMatch) {
+          errors.push({
+            msg: "Old password is uncorrect",
+          });
+        }
+      });
+    }
+  }
+  //Nếu không phải Local Account
+  else {
+    if (!name) {
+      errors.push({
+        msg: "Please enter all fields",
+      });
+    }
+  }
+  //Nếu có lỗi, tra về 1 file JSON danh sách các lỗi
+  if (errors.length > 0) {
+    await res.json(errors);
+  } else {
+    //Nếu không có lỗi thì cập nhật lại thông tin user
+    req.user.name = name;
+    req.user.gender = gender;
+    //Không phải account local
+    if (req.user.password != undefined) {
+      req.user.password = await bcrypt.hash(newPassword, 10);
+    }
+    req.user.save().then(() => {
+      req.flash("success_msg", "Your are updated");
+      res.json(true);
+    });
+  }
+});
+
+//Upload avatar
+Router.post("/updateAvatar", function (req, res) {
+  fs.mkdir(
+    path.join(__dirname, "../public/avatar/" + req.user._id.toString()),
+    () => {}
+  );
+
+  const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, "./public/avatar/" + req.user._id.toString());
+    },
+    filename: function (req, file, cb) {
+      let avatar =
+        "/public/avatar/" + req.user._id.toString() + "/" + "avatar.png";
+      req.user.avatar = avatar;
+      req.user.save();
+      cb(null, "avatar.png");
+    },
+  });
+  const upload = multer({
+    storage,
+  });
+  upload.single("fuMain")(req, res, async function async(err) {
+    if (err) {
+      console.log(err);
+    } else {
+      // let avatar =
+      //     "../public/avatar/" + req.user._id.toString() + "/" + "avatar.png";
+      // await cloudinary.uploader.upload(avatar, {
+      //     public_id: 'NEWFOLDER/test',
+      //     resource_type: 'image'
+      // }, (err, result)=>{
+      //     console.log(err);
+      //     console.log(result);
+      // });
+      await res.redirect("/users/account");
+    }
+  });
+});
+
+//Xử lí request ajax bấm vào nút yêu thích cảu client
+Router.post("/wish-list-change", ensureAuthenticated, async (req, res) => {
+  courseID = req.body.courseID;
+  if (courseID != undefined) {
+    let index;
+    if ((index = req.user.idWishList.indexOf(courseID)) == -1) {
+      req.user.idWishList.push(courseID);
+    } else {
+      req.user.idWishList.splice(index, 1);
+    }
+    req.user.save();
+    res.end();
+  }
+});
+
+//Xử lí requrest ajax bấm vào nút PlayVideo
+Router.post("/:nameCourse/updateLearnedVideo", async (req, res) => {
+  const videoIndex = req.body.videoIndex;
+  const course = await Course.findOne({
+    name: req.params.nameCourse,
+  });
+
+  //Đánh dấu video đã được xem
+  let flag = false;
+  for (let i = 0; i < req.user.purchasedCourses.length; i++) {
+    if (
+      req.user.purchasedCourses[i].idCourse.toString() == course._id &&
+      req.user.purchasedCourses[i].learnedVideos.indexOf(videoIndex) == -1
+    ) {
+      req.user.purchasedCourses[i].learnedVideos.push(videoIndex);
+      req.user.save();
+      res.json(true);
+      flag = true;
+      break;
+    }
+  }
+  if (!flag) {
+    res.json(false);
+  }
+});
+
+module.exports = Router;

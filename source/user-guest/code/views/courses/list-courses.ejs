@@ -1,0 +1,313 @@
+<style>
+  .navbar-collapse {
+    flex-grow: 0;
+  }
+
+  .navbar-collapse-right {
+    margin-left: auto; /* instead of fixed 750px */
+  }
+  .container-wrap {
+    width: 85%;
+    max-width: 1280px;
+    margin: auto;
+    padding-top: 48px;
+  }
+
+  .course-list {
+    padding-top: 40px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #dcdacb;
+  }
+
+  .udlite-container {
+    width: 100%;
+    max-width: 1340px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 30px 2.4px 30px 2.4px;
+  }
+
+  .heading-xl {
+    font-family: sf pro display, -apple-system, BlinkMacSystemFont, Roboto,
+      segoe ui, Helvetica, Arial, sans-serif, apple color emoji, segoe ui emoji,
+      segoe ui symbol;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02px;
+    font-size: 24px;
+  }
+
+  .img {
+    float: left;
+    width: 260px;
+    height: 145px;
+    margin-right: 20px;
+  }
+
+  .btn-group {
+    margin-top: 20px;
+  }
+
+  /* Updated course badges to blue variants */
+  .card-hot,
+  .card-new,
+  .card-best {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3px 10px;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .price {
+    float: right;
+    font-size: 20px;
+  }
+
+  .fa-star {
+    font-size: 13px;
+  }
+
+  .footer-container {
+    padding-top: 30px;
+    padding-bottom: 20px;
+    font-size: 12px;
+    text-align: center;
+  }
+  .pagination {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+  }
+  .pagination a {
+    color: #2563eb;
+    padding: 8px 14px;
+    text-decoration: none;
+    border-radius: 6px;
+    border: 1px solid #dcdacb;
+    transition: all 0.3s ease;
+  }
+  .pagination a:hover {
+    background-color: #f0f4ff;
+  }
+  .pagination .active {
+    background-color: #2563eb;
+    color: white;
+    border-color: #2563eb;
+  }
+
+  /* Updated pagination active state to blue */
+  .active {
+    background-color: #2563eb;
+    color: white;
+  }
+  #searchForm1 select {
+    background-color: #f9fafb;
+    border: 1px solid #dcdacb;
+    color: #111827;
+    padding: 10px 14px;
+    font-size: 15px;
+    border-radius: 6px;
+    transition: border-color 0.3s ease;
+  }
+  #searchForm1 select:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.3);
+  }
+  #buttonFilter {
+    padding: 10px 18px;
+    font-weight: 600;
+    border-radius: 6px;
+    background-color: #2563eb;
+    border-color: #2563eb;
+    transition: background-color 0.3s ease;
+  }
+  #buttonFilter:hover {
+    background-color: #1d4ed8;
+  }
+</style>
+
+<body>
+  <div class="container-wrap">
+    <% if (isFilter) { %>
+    <div class="search">
+      <form
+        data-searchInput="<%= searchInput %>"
+        id="searchForm1"
+        action="/courses/search"
+        class="form-inline"
+        method="GET"
+      >
+        <div class="row">
+          <input
+            id="searchInput1"
+            type="hidden"
+            value="<%= searchInput%>"
+            name="queryString"
+          />
+          <input type="hidden" value="<%= page%>" name="page" />
+          <input type="hidden" />
+          <!-- <div class="form-group col-sm-5">
+            <select id="categorySelect" name="category" id="category">
+              <% for( let i=0; i < courseCategories.length; i++ ) { %>
+              <option
+                data-categoryID="<%= courseCategories[i]._id %>"
+                value="<%= courseCategories[i].name %>"
+              >
+                <%=courseCategories[i].name %>
+              </option>
+              <% } %>
+            </select>
+          </div> -->
+          <!-- <div class="form-group col-sm-5">
+
+            <select id="topicSelect" name="courseTopicID"></select>
+          </div>
+          <div class="form-group col-sm-2">
+   
+            <button class="btn btn-primary" id="buttonFilter" type="button">Filter</button>
+          </div> -->
+        </div>
+      </form>
+    </div>
+    <script>
+      $(document).ready(() => {
+        $("#searchInput").val($("#searchForm1").attr("data-searchInput"));
+      });
+    </script>
+    <script>
+      //Nhấp nút filter
+      $("#buttonFilter").on("click", () => {
+        console.log("hello");
+        const categoryName = $("#categorySelect").find(":selected").val();
+        const topicName = $("#topicSelect").find(":selected").val();
+        const queryString = $("#searchInput").val();
+
+        //Gán queryString searchForm1 = queryString searchForm
+        $("#searchInput1").val($("#searchInput").val());
+
+        //Không điền thì trả về danh sách khóa học theo topic
+        if (queryString == null) {
+          $.get(`/courses/${categoryName}/${topicName}`);
+        }
+        //Ngược lại thực hiện truy vấn
+        else {
+          $("#searchForm1").submit();
+        }
+      });
+    </script>
+    <script type="text/javascript">
+      //Chuẩn bị cho việc mở trang
+      $(document).ready(() => {
+        //Thêm topic ban đầu
+        const categoryName = $("#categorySelect").find(":selected").val();
+        $.post(`/courses/${categoryName}/getTopics`, categoryName, (json) => {
+          const topics = json;
+          $("#topicSelect").find("option").remove();
+          topics.forEach((topic) => {
+            $("#topicSelect").append(
+              `<option value="${topic._id}">${topic.name}</option>`
+            );
+          });
+        });
+      });
+
+      //Bắt sự kiện thay đổi giá trị category
+      $("#categorySelect").change(function () {
+        const categoryName = $(this).val();
+        $.post(`/courses/${categoryName}/getTopics`, categoryName, (json) => {
+          const topics = json;
+          $("#topicSelect").find("option").remove();
+          topics.forEach((topic) => {
+            $("#topicSelect").append(
+              `<option value="${topic._id}">${topic.name}</option>`
+            );
+          });
+        });
+      });
+    </script>
+    <% } %>
+    <h1><%= title %></h1>
+    <% for( let i=0; i < courses.length; i++ ) { %> <%-
+    include('../partials/card-course-list', { course: courses[i],
+    isAuthenticated: isAuthenticated, index: i }) %> <% } %>
+  </div>
+
+  <div
+    data-currentPage="<%= page %>"
+    data-numberOfPage="<%= numberOfPage %>"
+    class="pagination"
+  >
+    <a id="prev-page" href="#">&laquo;</a>
+    <div class="sub-pages">
+      <% for(let i = 0; i < numberOfPage; i++ ) { %>
+      <a class="sub-page" data-page="<%= i + 1%>" href="#"><%= i +1 %></a>
+      <% } %>
+    </div>
+    <a id="next-page" href="#">&raquo;</a>
+  </div>
+</body>
+
+<script>
+  const numberOfPage = $(".pagination").attr("data-numberOfPage");
+  const currentPage = $(".pagination").attr("data-currentPage");
+  const currentURL = window.location.href;
+  const url = new URL(currentURL);
+
+  $(document).ready(() => {
+    $(".sub-page").each((index, e) => {
+      if (index + 1 == +currentPage) {
+        $(e).addClass("active");
+      }
+    });
+  });
+
+  //Bắt sự kiện nhấp vào trang con
+  $(".sub-page").on("click", (e) => {
+    console.log("num: ", numberOfPage);
+    console.log("url: ", url);
+
+    const subPage = $(e.target).attr("data-page");
+    console.log("sub-page: ", subPage);
+    url.searchParams.set("page", subPage);
+    console.log(url.href);
+    //Chuyển trang
+    window.location.replace(url.href);
+  });
+  //Bắt sự kiện nhấp vào nút trang trước đó
+  $("#prev-page").on("click", () => {
+    console.log("num: ", numberOfPage);
+    console.log("cur: ", currentPage);
+    console.log("url: ", url.href);
+
+    const page = +currentPage - 1;
+    if (currentPage > 1) {
+      url.searchParams.set("page", page);
+      console.log(url.href);
+    } else {
+      console.log(url.href);
+    }
+    //Chuyển trang
+    window.location.replace(url.href);
+  });
+  //Bắt sự kiện nhấp vào nút trang tiếp theo
+  $("#next-page").on("click", () => {
+    console.log("num: ", numberOfPage);
+    console.log("cur: ", currentPage);
+    console.log("url: ", url.href);
+    const page = +currentPage + 1;
+    if (currentPage < numberOfPage) {
+      url.searchParams.set("page", page);
+      console.log(url.href);
+    } else {
+      console.log(url.href);
+    }
+    //Chuyển trang
+    window.location.replace(url.href);
+  });
+</script>
