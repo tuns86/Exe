@@ -64,9 +64,30 @@ Router.get("/check/:amount", async (req, res) => {
     }
 
     const response = await fetch(
-      "https://script.google.com/macros/s/AKfycbzWgUOMHhjm0zbmTqlM46Hyk8rTpPQg3rmVdc1XY5HUpbC7k91qFemg5wyV8RkYTKYV/exec"
+      "https://script.google.com/macros/s/AKfycbwT3YswNTcnQt-ku2GYzV1iq2vngJ1S4VyumxrHgwYrfk0bmjK4c2mTCS0YjrTXMTzf/exec"
     );
-    const data = await response.json();
+
+    // Robustly handle non-JSON responses (e.g., HTML error pages)
+    const contentType = response.headers.get("content-type") || "";
+    let data;
+    if (!response.ok) {
+      const txt = await response.text();
+      console.error("[payment][check] fetch returned non-OK status:", response.status, txt.slice(0, 500));
+      return res.json({ matched: false, error: true, message: "Data source returned error" });
+    }
+
+    if (contentType.includes("application/json") || contentType.includes("text/json")) {
+      data = await response.json();
+    } else {
+      // Try to parse text as JSON, otherwise log the HTML/text for debugging
+      const txt = await response.text();
+      try {
+        data = JSON.parse(txt);
+      } catch (e) {
+        console.error("[payment][check] fetched content is not JSON. Sample (truncated):", txt.slice(0, 1000));
+        return res.json({ matched: false, error: true, message: "Data source returned non-JSON content" });
+      }
+    }
 
     if (!data || !data.data || data.data.length === 0) {
       return res.json({
