@@ -14,13 +14,17 @@ const paymentConfig = require("../config/vietqr.config");
 
 const crypto = require("crypto");
 
+const Payment = require("../models/Payment.model");
+
 const {
   ensureAuthenticated,
   forwardAuthenticated,
 } = require("../config/auth.config");
 
 Router.get("/:nameCourse/checkout", ensureAuthenticated, async (req, res) => {
-  const course = await Course.findOne({ name: req.params.nameCourse });
+  const courseName = decodeURIComponent(req.params.nameCourse);
+  const course = await Course.findOne({ name: courseName });
+
   const now = new Date();
   const date = `${now.getDate()}/${now.getMonth() + 1}/${now.getFullYear()}`;
 
@@ -32,6 +36,15 @@ Router.get("/:nameCourse/checkout", ensureAuthenticated, async (req, res) => {
     courseId: course._id,
     amount: course.tuition,
   };
+
+  const payment = new Payment({
+    code: paymentCode,
+    idUser: req.user._id,
+    idCourse: course._id,
+    amount: course.tuition,
+  });
+
+  await payment.save(); 
 
   // ⚡️ Tạo QR link
   const { bank } = paymentConfig;
@@ -54,13 +67,10 @@ Router.get("/:nameCourse/checkout", ensureAuthenticated, async (req, res) => {
 Router.get("/check/:amount", async (req, res) => {
   try {
     const { amount } = req.params;
-    const paymentInfo = req.session.paymentInfo;
+    let paymentInfo = req.session.paymentInfo;
 
     if (!paymentInfo) {
-      return res.json({
-        matched: false,
-        message: "Không tìm thấy thông tin thanh toán trong session.",
-      });
+      paymentInfo = await Payment.findOne({ code: req.query.code });
     }
 
     const response = await fetch(
@@ -103,6 +113,13 @@ Router.get("/check/:amount", async (req, res) => {
     const matched =
       desc.includes(paymentInfo.code) && price >= parseInt(amount);
 
+    if (matched) {
+      await Payment.findOneAndUpdate(
+        { code: paymentInfo.code },
+        { status: "paid" }
+      );
+    }
+
     res.json({ matched, desc, price });
   } catch (error) {
     res.json({ matched: false, error: true });
@@ -114,21 +131,6 @@ Router.post("/:nameCourse/confirm", ensureAuthenticated, async (req, res) => {
     const course = await Course.findOne({
       name: req.params.nameCourse,
     }).populate("idCourseTopic");
-
-    course.numberOfStudent += 1;
-    await course.save();
-
-    const topic = await CourseTopic.findById(course.idCourseTopic);
-    if (topic) {
-      topic.numberOfSignUp += 1;
-      await topic.save();
-
-      const category = await CourseCategory.findById(topic.idCourseCategory);
-      if (category) {
-        category.numberOfSignUp += 1;
-        await category.save();
-      }
-    }
 
     req.user.purchasedCourses.push({
       idCourse: course._id,
@@ -150,21 +152,7 @@ Router.get("/:nameCourse/success", async (req, res) => {
     name: req.params.nameCourse,
   }).populate("idCourseTopic");
 
-  //Tăng học sinh khóa học, tăng đăng kí của Topic, category
-  course.numberOfStudent += 1;
-  course.save();
-  CourseTopic.findOne({
-    _id: course.populated("idCourseTopic"),
-  }).then((doc) => {
-    doc.numberOfSignUp += 1;
-    doc.save();
-  });
-  CourseCategory.findOne({
-    _id: course.idCourseTopic.idCourseCategory,
-  }).then((doc) => {
-    doc.numberOfSignUp += 1;
-    doc.save();
-  });
+  await finalizePurchase(req.user, course);
 
   //Thêm khóa học vào danh sách khóa học đã mua
   req.user.purchasedCourses.push({
@@ -181,5 +169,25 @@ Router.get("/:nameCourse/success", async (req, res) => {
 Router.get("/:nameCourse/fail", (req, res) => {
   res.redirect("/my-courses");
 });
+
+async function finalizePurchase(user, course) {
+  course.numberOfStudent += 1;
+  await course.save();
+
+  const topic = await CourseTopic.findById(course.idCourseTopic);
+  if (topic) {
+    topic.numberOfSignUp += 1;
+    await topic.save();
+    const category = await CourseCategory.findById(topic.idCourseCategory);
+    if (category) {
+      category.numberOfSignUp += 1;
+      await category.save();
+    }
+  }
+
+  user.purchasedCourses.push({ idCourse: course._id, learnedVideos: [] });
+  await user.save();
+}
+
 
 module.exports = Router;

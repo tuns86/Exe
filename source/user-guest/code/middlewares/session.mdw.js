@@ -1,6 +1,4 @@
 const session = require("express-session");
-const MongoStore = require("connect-mongo");
-const { MongoLocal } = require("../config/key.config");
 
 module.exports = function (app) {
     app.use(session({

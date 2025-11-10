@@ -10,6 +10,10 @@ const CourseSchema = mongoose.Schema({
         type: String,
         default: '/public/poster/default/poster.png'
     },
+    expertise: {
+        type: String,
+        default: 'Đây là miêu tả chuyên môn khóa học'
+    },
     description: {
         type: String,
         default: 'Đây là miêu tả khóa học'

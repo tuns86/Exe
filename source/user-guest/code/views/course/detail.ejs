@@ -256,22 +256,17 @@
             </h2>
           </div>
           <p><%= course.description %></p>
-          <i class="star0 fa fa-star"></i>
+          <!-- <i class="star0 fa fa-star"></i>
           <i class="star1 fa fa-star"></i>
           <i class="star2 fa fa-star"></i>
           <i class="star3 fa fa-star"></i>
-          <i class="star4 fa fa-star"></i>
-          <!-- <span class="star5 text-warning" style="padding-left: 5px">
-            <strong
-              ><%= course.evaluationPoint %> (<%= course.userEvaluations.length
-              %> đánh giá)</strong>
-          </span> -->
+          <i class="star4 fa fa-star"></i> -->
           <p><%= course.uploadDate.toDateString() %></p>
           <p>
             Giảng viên:
-            <a href="#" style="color: rgb(144, 205, 247)"
-              ><strong><%= course.idLecturer.name %></strong></a
-            >
+            <a href="#" style="color: rgb(144, 205, 247)">
+              <strong><%= course.idLecturer.name %></strong>
+            </a>
           </p>
           <% if (!isPaid) { %>
           <a href="/payment/<%= course.name %>/checkout">
@@ -307,84 +302,11 @@
           >Giới thiệu</a
         >
       </li>
-      <li class="nav-item">
-        <a
-          class="nav-link"
-          id="content-tab"
-          data-toggle="tab"
-          href="#couser-content"
-          role="tab"
-          aria-controls="content"
-          aria-selected="false"
-          style="font-size: 20px"
-          >Nội dung</a
-        >
-      </li>
-      <!-- <li class="nav-item">
-        <a
-          class="nav-link"
-          id="teacher-tab"
-          data-toggle="tab"
-          href="#couser-teacher"
-          role="tab"
-          aria-controls="teacher"
-          aria-selected="false"
-          style="font-size: 20px"
-          >Thông tin giảng viên</a
-        >
-      </li>
-      <li class="nav-item">
-        <a
-          class="nav-link"
-          id="review-tab"
-          data-toggle="tab"
-          href="#couser-review"
-          role="tab"
-          aria-controls="review"
-          aria-selected="false"
-          style="font-size: 20px"
-          >Reviews</a
-        >
-      </li>
-      <li class="nav-item">
-        <a
-          class="nav-link"
-          id="faq-tab"
-          data-toggle="tab"
-          href="#couser-faq"
-          role="tab"
-          aria-controls="faq"
-          aria-selected="false"
-          style="font-size: 20px"
-          >FAQ</a
-        >
-      </li> -->
     </ul>
 
     <div id="couser-intro" class="text-container">
-      <h2 class="heading-xl">Về chuyên môn này</h2>
-      <p>
-        Chuyên ngành này được xây dựng dựa trên sự thành công của khóa học
-        Python cho mọi người và sẽ giới thiệu các khái niệm lập trình cơ bản bao
-        gồm cấu trúc dữ liệu, giao diện chương trình ứng dụng được nối mạng và
-        cơ sở dữ liệu, sử dụng ngôn ngữ lập trình Python. Trong Dự án Capstone,
-        bạn sẽ sử dụng các công nghệ đã học trong suốt Chuyên môn để thiết kế và
-        tạo các ứng dụng của riêng bạn để truy xuất, xử lý và hiển thị dữ liệu.
-      </p>
-      <p>Khóa học này dành cho:</p>
-      <ul>
-        <li>Bất kỳ ai quan tâm đến Machine Learning</li>
-        <li>
-          Học sinh có ít nhất kiến thức trung học về toán và những người muốn
-          bắt đầu học Machine Learning.
-        </li>
-        <li>
-          Bất kỳ trình độ trung cấp nào là những người biết kiến thức cơ bản về
-          Machine Learning, bao gồm các thuật toán cổ điển như hồi quy tuyến
-          tính hoặc hồi quy logistic, nhưng những người muốn tìm hiểu thêm về nó
-          và khám phá tất cả các lĩnh vực khác nhau của Machine Learning.
-        </li>
-      </ul>
+      <h2 class="heading-xl">Về chuyên môn</h2>
+      <p> <%= course.expertise %> </p>
       <div class="what-you-will-learn">
         <h3 style="margin: 0 2.4rem 1.6rem">
           <strong>Bạn sẽ được học</strong>
@@ -434,152 +356,29 @@
         <% }) %>
       </div>
 
-    <div id="couser-teacher" class="text-container">
-      <h2 class="heading-xl">Instructor</h2>
-      <div class="heading-lg">
-        <a href="#" style="text-decoration: none">
-          <%= course.idLecturer.name %>
-        </a>
-      </div>
-      <p style="color: gray">Development Team Lead</p>
-      <div class="row">
-        <div class="col-sm-2">
-          <img src="<%= course.idLecturer.avatar %>" alt="" class="rounded-circle teacher-avt" />
-        </div>
-        <!-- <div class="col-sm-6 info">
-          <i class="fas fa-star text-warning"></i>
-          <span style="margin-left: 8px">4.5 Instructor Rating</span><br />
-          <i class="fas fa-user-graduate text-warning"></i>
-          <span style="margin-left: 8px">32,523 Students</span><br />
+    <div id="course-teacher" class="container my-5 p-4 bg-light rounded shadow-sm">
+      <h2 class="mb-4">Instructor</h2>
 
-          <i class="fas fa-play-circle text-warning"></i>
-          <span style="margin-left: 8px">20 Course</span><br />
-        </div> -->
-        <p style="padding-top: 20px">
-          <%= course.idLecturer.description %> 
-        </p>
+      <div class="row align-items-center">
+        <!-- Avatar -->
+        <div class="col-md-2 text-center mb-3 mb-md-0">
+          <img src="<%= course.idLecturer.avatar %>" alt="Instructor Avatar" 
+              class="img-fluid rounded-circle border border-primary" style="width: 100px; height: 100px; object-fit: cover;">
+        </div>
+
+        <!-- Info -->
+        <div class="col-md-10">
+          <h4>
+            <a href="#" class="text-primary text-decoration-none">
+              <%= course.idLecturer.name %>
+            </a>
+          </h4>
+          <p class="mt-2 text-muted">
+            <%= course.idLecturer.description %>
+          </p>
+        </div>
       </div>
     </div>
-
-    <!-- <div id="student-feedback" class="text-container">
-      <h2 class="heading-xl">Phản hồi của học sinh</h2>
-      <div class="row student-response">
-        <div class="card">
-          <div class="heading-xxl text-warning"><%= course.evaluationPoint %> </div>
-          <div>
-            <i class="star0 fa fa-star"></i>
-            <i class="star1 fa fa-star"></i>
-            <i class="star2 fa fa-star"></i>
-            <i class="star3 fa fa-star"></i>
-            <i class="star4 fa fa-star"></i>
-          </div>
-          <div class="text-warning"><strong>Course rating</strong></div>
-        </div>
-
-        <div class="col">
-          <div class="middle">
-            <div class="bar-container">
-              <div class="bar bar-5"></div>
-            </div>
-          </div>
-
-          <div class="middle">
-            <div class="bar-container">
-              <div class="bar bar-4"></div>
-            </div>
-          </div>
-
-          <div class="middle">
-            <div class="bar-container">
-              <div class="bar bar-3"></div>
-            </div>
-          </div>
-
-          <div class="middle">
-            <div class="bar-container">
-              <div class="bar bar-2"></div>
-            </div>
-          </div>
-
-          <div class="middle">
-            <div class="bar-container">
-              <div class="bar bar-1"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <% if (isAuthenticated && isEvaluate && isPaid) { %>
-    <div class="rating-star">
-      <h3>Bạn đã đánh giá</h3>
-      <div class="star">
-        <i id="eva-star0" class="my-star0 fa fa-star" style="color: yellow"></i>
-        <i id="eva-star1" class="my-star1 fa fa-star"></i>
-        <i id="eva-star2" class="my-star2 fa fa-star"></i>
-        <i id="eva-star3" class="my-star3 fa fa-star"></i>
-        <i id="eva-star4" class="my-star4 fa fa-star"></i>
-      </div>
-      
-      <button class="btn btn-success" data-isPaid="<%= isPaid %>" id="eva-btn" type="button">
-        Đánh giá lại
-      </button>
-    </div>
-
-    <% } %> <% if (isAuthenticated && !isEvaluate && isPaid) { %>
-    <div>
-      <h3>Đánh giá</h3>
-      <i id="eva-star0" class="fa fa-star" style="color: yellow"></i>
-      <i id="eva-star1" class="fa fa-star"></i>
-      <i id="eva-star2" class="fa fa-star"></i>
-      <i id="eva-star3" class="fa fa-star"></i>
-      <i id="eva-star4" class="fa fa-star"></i>
-      <button data-isPaid="<%= isPaid %>" id="eva-btn" type="button" class="btn btn-success">
-        Gửi đánh giá
-      </button>
-    </div>
-    <% } %>
-      <div >
-        <h2 class="heading-xl" style="padding-top: 40px">Reviews</h2>
-        <% if (isPaid) { %>
-        <div id="evaluation">
-            <form>
-                <div class="form-group">
-                    <label for="exampleFormControlTextarea1">Đánh giá của bạn</label>
-                    <textarea class="form-control" id="review" rows="3"></textarea>
-                </div>
-            </form>
-            <button id="review-btn" type="button" class="btn btn-info" style="float: right;">Gửi</button><br>
-        </div>
-        <% } %>
-        <% for( let i = 0; i < course.userReviews.length; i++ ) { %>
-        <div class="row comment">
-            <div class="col-sm-1">
-                <img src="<%= userReviews[i].avatar %> "
-                class="rounded-circle reviews" />
-            </div>
-            <div class="col-sm-11">
-                <p class="heading-md"><%= userReviews[i].name %></p>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="far fa-star text-warning"></span>
-                <span style="color: gray">
-                <%= course.userReviews[i].date.toDateString() %>  </span>
-                <p id="review" style="padding-top: 10px">
-                <%= course.userReviews[i].review %> 
-                </p>
-                <a href="#"><i class="fa fa-thumbs-up" style="color: gray"></i></a>
-                <span style="font-size: 12px">Was this review helpful?</span>
-            </div>
-        </div>
-        <% } %>
-      </div>
-    </div>
-
-    <div id="faq" class="text-container" style="border: 0px">
-      <h2 class="heading-xl">FAQ</h2>
-    </div> -->
   </div>
 
   <!-- Bấm nút comment -->
