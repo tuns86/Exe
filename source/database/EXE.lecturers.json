@@ -1,0 +1,95 @@
+[{
+  "_id": {
+    "$oid": "5fed6330aba5d81fc019f9b7"
+  },
+  "date": {
+    "$date": "2020-12-31T05:35:44.047Z"
+  },
+  "avatar": "https://res.cloudinary.com/dlxpjkaay/image/upload/v1762795860/hình_ảnh_2025-11-11_003057449_vedo07.png",
+  "description": "Mentor Đăng Khoa - Performance Executive",
+  "isAuth": true,
+  "name": "Đăng Khoa",
+  "email": "dangkhoa123@gmail.com",
+  "password": "$2a$12$KIXsCzEYjXPt1A6bnFqlxOuQxF44XY0Hq5SYnQyCvnKbOhrZy9Rvu",
+  "gender": "nam",
+  "otpNumber": "",
+  "__v": 0,
+  "idCourses": [],
+  "status": true
+},
+{
+  "_id": {
+    "$oid": "5fed6330aba5d81fc019f9b8"
+  },
+  "date": {
+    "$date": "2021-01-02T10:12:32.000Z"
+  },
+  "avatar": "https://res.cloudinary.com/dlxpjkaay/image/upload/v1762796120/hình_ảnh_2025-11-11_003519662_fip9ja.png",
+  "description": "Mentor Nguyễn Văn Hà - Manager Marketing",
+  "isAuth": true,
+  "name": "Nguyễn Văn Hà",
+  "email": "vanha@gmail.com",
+  "password": "$2a$12$KIXsCzEYjXPt1A6bnFqlxOuQxF44XY0Hq5SYnQyCvnKbOhrZy9Rvu",
+  "gender": "nữ",
+  "otpNumber": "",
+  "__v": 0,
+  "idCourses": [],
+  "status": true
+},
+{
+  "_id": {
+    "$oid": "5fed6330aba5d81fc019f9b9"
+  },
+  "date": {
+    "$date": "2021-01-03T15:18:27.000Z"
+  },
+  "avatar": "https://res.cloudinary.com/dlxpjkaay/image/upload/v1762795963/hình_ảnh_2025-11-11_003242460_hevkph.png",
+  "description": "Mentor Anh Thêm - SEO Performance Specialist",
+  "isAuth": true,
+  "name": "Anh Thêm",
+  "email": "anhthem@gmail.com",
+  "password": "$2a$12$KIXsCzEYjXPt1A6bnFqlxOuQxF44XY0Hq5SYnQyCvnKbOhrZy9Rvu",
+  "gender": "nam",
+  "otpNumber": "",
+  "__v": 0,
+  "idCourses": [],
+  "status": true
+},
+{
+  "_id": {
+    "$oid": "5fed6330aba5d81fc019f9ba"
+  },
+  "date": {
+    "$date": "2021-01-05T08:22:44.000Z"
+  },
+  "avatar": "https://res.cloudinary.com/dlxpjkaay/image/upload/v1762795977/hình_ảnh_2025-11-11_003256445_fzpd0i.png",
+  "description": "Mentor Trọng Nghĩa - Founder Smile Travel",
+  "isAuth": true,
+  "name": "Trọng Nghĩa",
+  "email": "trongnghia@gmail.com",
+  "password": "$2a$12$KIXsCzEYjXPt1A6bnFqlxOuQxF44XY0Hq5SYnQyCvnKbOhrZy9Rvu",
+  "gender": "nam",
+  "otpNumber": "",
+  "__v": 0,
+  "idCourses": [],
+  "status": true
+},
+{
+  "_id": {
+    "$oid": "5fed6330aba5d81fc019f9bb"
+  },
+  "date": {
+    "$date": "2021-01-06T11:42:55.000Z"
+  },
+  "avatar": "https://res.cloudinary.com/dlxpjkaay/image/upload/v1762796017/hình_ảnh_2025-11-11_003336253_scmbpu.png",
+  "description": "Mentor Kevin Nguyễn - Leader Marketing",
+  "isAuth": true,
+  "name": "Kevin Nguyễn",
+  "email": "kevinnguyen@gmail.com",
+  "password": "$2a$12$KIXsCzEYjXPt1A6bnFqlxOuQxF44XY0Hq5SYnQyCvnKbOhrZy9Rvu",
+  "gender": "nam",
+  "otpNumber": "",
+  "__v": 0,
+  "idCourses": [],
+  "status": true
+}]

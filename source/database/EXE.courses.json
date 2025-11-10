@@ -1,0 +1,341 @@
+[{
+  "_id": {
+    "$oid": "60047d92b5a8d22b18f6f9d1"
+  },
+  "poster": "https://res.cloudinary.com/dlxpjkaay/image/upload/v1762792412/hình_ảnh_2025-11-10_233328941_qo3k4g.png",
+  "expertise": "Khóa học cung cấp kiến thức chuyên sâu về Content Marketing, từ nghiên cứu đối tượng khách hàng, phân tích thị trường, lên chiến lược nội dung sáng tạo, quản lý mạng xã hội, viết bài chuẩn SEO, đến tối ưu hóa tương tác. Học viên học cách lập kế hoạch dài hạn, phân tích hiệu quả nội dung, khai thác các công cụ tiếp thị hiện đại, xây dựng thương hiệu cá nhân và doanh nghiệp một cách bài bản, đồng thời phát triển kỹ năng sáng tạo nội dung phù hợp với mục tiêu kinh doanh và truyền thông số.",
+  "description": "Khóa học Content Marketing giúp bạn nắm bắt tư duy sáng tạo nội dung và chiến lược truyền thông hiệu quả.",
+  "evaluationPoint": 0,
+  "numberOfStudent": 10,
+  "numberOfView": 53,
+  "tuition": 200000,
+  "uploadDate": {
+    "$date": "2021-01-18T10:12:00.000Z"
+  },
+  "numberOfVideo": 4,
+  "previewIndex": [
+    0,
+    1,
+    2
+  ],
+  "whatYoullLearn": [
+    "Hiểu rõ các dạng nội dung phổ biến trên mạng xã hội.",
+    "Cách xây dựng chiến lược nội dung hấp dẫn.",
+    "Cách viết bài chuẩn SEO và kêu gọi hành động hiệu quả.",
+    "Xây dựng kế hoạch content marketing dài hạn."
+  ],
+  "name": "Content Marketing Mastery",
+  "idCourseTopic": {
+    "$oid": "60008bbfb00fb11eecfcfb7c"
+  },
+  "idLecturer": {
+    "$oid": "5fed6330aba5d81fc019f9b8"
+  },
+  "videos": [
+    {
+      "_id": {
+        "$oid": "5ff2e3b37d305e09608a1df1"
+      },
+      "name": "Content 1",
+      "source": "https://res.cloudinary.com/teamwebctt2/video/upload/v1610694985/webctt2/video/beginerWebDev/0_lvaobv.mp4"
+    },
+    {
+      "_id": {
+        "$oid": "5ff2e3b37d305e09608a1df2"
+      },
+      "name": "Content 2",
+      "source": "https://res.cloudinary.com/teamwebctt2/video/upload/v1610695264/webctt2/video/beginerWebDev/1_fhyaht.mp4"
+    },
+    {
+      "_id": {
+        "$oid": "5ff2e3b37d305e09608a1df3"
+      },
+      "name": "Content 3",
+      "source": "https://res.cloudinary.com/teamwebctt2/video/upload/v1610695047/webctt2/video/beginerWebDev/2_yzm3nq.mp4"
+    },
+    {
+      "_id": {
+        "$oid": "5ff2e3b37d305e09608a1df4"
+      },
+      "name": "Content 4",
+      "source": "https://res.cloudinary.com/teamwebctt2/video/upload/v1610695300/webctt2/video/beginerWebDev/3_uqdlhj.mp4"
+    }
+  ],
+  "userEvaluations": [],
+  "userReviews": [],
+  "__v": 1,
+  "status": true
+},
+{
+  "_id": {
+    "$oid": "60047d92b5a8d22b18f6f9d2"
+  },
+  "poster": "https://res.cloudinary.com/dlxpjkaay/image/upload/v1762792534/hình_ảnh_2025-11-10_233533160_rn61os.png",
+  "expertise": "Khóa học tập trung vào tối ưu hóa chiến dịch quảng cáo kỹ thuật số, bao gồm Google Ads và Facebook Ads. Học viên học cách phân tích dữ liệu, xác định chỉ số quan trọng, tối ưu ngân sách, A/B testing và cải thiện hiệu suất chiến dịch. Khóa học hướng dẫn thực hành thiết lập nhóm quảng cáo, báo cáo chi tiết, đo lường ROI và phát triển chiến lược quảng cáo chuyên nghiệp, giúp học viên quản lý chiến dịch quảng cáo hiệu quả, nâng cao chuyển đổi và tối đa hóa giá trị đầu tư quảng cáo.",
+  "description": "Tối ưu quảng cáo chuyên sâu với khóa học Ads Optimization.",
+  "evaluationPoint": 0,
+  "numberOfStudent": 6,
+  "numberOfView": 21,
+  "tuition": 200000,
+  "uploadDate": {
+    "$date": "2021-01-18T10:30:00.000Z"
+  },
+  "numberOfVideo": 4,
+  "previewIndex": [
+    0,
+    1,
+    2
+  ],
+  "whatYoullLearn": [
+    "Phân tích chiến dịch quảng cáo hiện có.",
+    "Xác định điểm tối ưu cho từng nhóm quảng cáo.",
+    "Thực hành tối ưu ngân sách thực tế.",
+    "Báo cáo hiệu suất và cải thiện chiến dịch."
+  ],
+  "name": "Ads Optimization Professional",
+  "idCourseTopic": {
+    "$oid": "60008bbfb00fb11eecfcfb7c"
+  },
+  "idLecturer": {
+    "$oid": "5fed6330aba5d81fc019f9b9"
+  },
+  "videos": [],
+  "userEvaluations": [],
+  "userReviews": [],
+  "__v": 1,
+  "status": true
+},
+{
+  "_id": {
+    "$oid": "60047d92b5a8d22b18f6f9d3"
+  },
+  "poster": "https://res.cloudinary.com/dlxpjkaay/image/upload/v1762792564/hình_ảnh_2025-11-10_233603713_foyhyq.png",
+  "expertise": "Khóa học chuyên sâu về Facebook Ads, từ thiết lập chiến dịch, chọn đối tượng mục tiêu, A/B testing, tối ưu chi phí đến đo lường hiệu quả. Học viên được hướng dẫn cách khai thác các công cụ quảng cáo của Facebook, quản lý ngân sách, phân tích dữ liệu chiến dịch, và tối ưu chuyển đổi. Khóa học giúp phát triển kỹ năng lập chiến lược quảng cáo, tăng hiệu quả tương tác và đạt mục tiêu kinh doanh, đồng thời học cách thực hành trên các chiến dịch mẫu thực tế để xây dựng kinh nghiệm chuyên nghiệp trong quảng cáo mạng xã hội.",
+  "description": "Nắm vững bí quyết chạy quảng cáo Facebook hiệu quả từ cơ bản đến nâng cao.",
+  "evaluationPoint": 0,
+  "numberOfStudent": 3,
+  "numberOfView": 8,
+  "tuition": 200000,
+  "uploadDate": {
+    "$date": "2021-01-18T11:00:00.000Z"
+  },
+  "numberOfVideo": 4,
+  "previewIndex": [
+    0,
+    1,
+    2
+  ],
+  "whatYoullLearn": [
+    "Cách thiết lập chiến dịch Facebook Ads chuyên nghiệp.",
+    "Hiểu rõ target đối tượng và A/B testing.",
+    "Tối ưu chi phí quảng cáo và đo lường hiệu quả.",
+    "Thực hành chiến dịch mẫu thực tế."
+  ],
+  "name": "Facebook Ads Masterclass",
+  "idCourseTopic": {
+    "$oid": "60008bbfb00fb11eecfcfb7c"
+  },
+  "idLecturer": {
+    "$oid": "5fed6330aba5d81fc019f9ba"
+  },
+  "videos": [],
+  "userEvaluations": [],
+  "userReviews": [],
+  "__v": 1,
+  "status": true
+},
+{
+  "_id": {
+    "$oid": "60047d92b5a8d22b18f6f9d4"
+  },
+  "poster": "https://res.cloudinary.com/dlxpjkaay/image/upload/v1762792647/hình_ảnh_2025-11-10_233726523_p4yg6q.png",
+  "expertise": "Khóa học cung cấp kiến thức toàn diện về quảng cáo Google Ads, từ thiết lập tài khoản, xây dựng chiến dịch theo mục tiêu, quản lý ngân sách, tối ưu chuyển đổi, đến phân tích dữ liệu và báo cáo hiệu quả. Học viên học cách lựa chọn từ khóa, thiết lập nhóm quảng cáo, đánh giá ROI, áp dụng chiến lược tối ưu chi phí và nâng cao hiệu quả marketing. Khóa học trang bị kỹ năng quảng cáo chuyên nghiệp, giúp học viên quản lý các chiến dịch Google Ads hiệu quả và đạt kết quả tốt nhất cho doanh nghiệp hoặc thương hiệu cá nhân.",
+  "description": "Khóa học giúp bạn trở thành chuyên gia quảng cáo Google Ads.",
+  "evaluationPoint": 0,
+  "numberOfStudent": 7,
+  "numberOfView": 29,
+  "tuition": 200000,
+  "uploadDate": {
+    "$date": "2021-01-18T11:30:00.000Z"
+  },
+  "numberOfVideo": 4,
+  "previewIndex": [
+    0,
+    1,
+    2
+  ],
+  "whatYoullLearn": [
+    "Cấu hình và quản lý tài khoản Google Ads.",
+    "Xây dựng chiến lược quảng cáo theo mục tiêu.",
+    "Phân tích dữ liệu và tối ưu chuyển đổi.",
+    "Áp dụng quảng cáo Google vào thực tiễn doanh nghiệp."
+  ],
+  "name": "Google Ads Expert",
+  "idCourseTopic": {
+    "$oid": "60008bbfb00fb11eecfcfb7c"
+  },
+  "idLecturer": {
+    "$oid": "5fed6330aba5d81fc019f9bb"
+  },
+  "videos": [],
+  "userEvaluations": [],
+  "userReviews": [],
+  "__v": 1,
+  "status": true
+},
+{
+  "_id": {
+    "$oid": "60047d92b5a8d22b18f6f9d5"
+  },
+  "poster": "https://res.cloudinary.com/dlxpjkaay/image/upload/v1762792703/hình_ảnh_2025-11-10_233822131_v1rx6a.png",
+  "expertise": "Khóa học tập trung vào quản lý dự án kinh doanh chuyên nghiệp, bao gồm lập kế hoạch, phân tích rủi ro, quản lý tiến độ và nguồn lực, áp dụng Agile và Scrum. Học viên học cách điều phối nhóm, phân công công việc, theo dõi tiến độ, đánh giá hiệu suất, và áp dụng các công cụ quản lý dự án. Khóa học giúp phát triển kỹ năng quản lý dự án từ lý thuyết đến thực hành, xây dựng khả năng lãnh đạo, ra quyết định hiệu quả và triển khai các dự án kinh doanh thành công trong môi trường thực tế.",
+  "description": "Học cách quản lý dự án kinh doanh hiệu quả với khóa Manager Project For Business.",
+  "evaluationPoint": 0,
+  "numberOfStudent": 3,
+  "numberOfView": 40,
+  "tuition": 200000,
+  "uploadDate": {
+    "$date": "2021-01-18T12:00:00.000Z"
+  },
+  "numberOfVideo": 5,
+  "previewIndex": [
+    0,
+    1,
+    2
+  ],
+  "whatYoullLearn": [
+    "Quản lý tiến độ và nguồn lực trong dự án.",
+    "Phương pháp Agile và Scrum trong kinh doanh.",
+    "Lập kế hoạch, phân tích rủi ro và điều phối nhóm.",
+    "Thực hành quản lý dự án mô phỏng thực tế."
+  ],
+  "name": "Manager Project For Business",
+  "idCourseTopic": {
+    "$oid": "60008bbfb00fb11eecfcfb7c"
+  },
+  "idLecturer": {
+    "$oid": "5fed6330aba5d81fc019f9b7"
+  },
+  "videos": [],
+  "userEvaluations": [],
+  "userReviews": [],
+  "__v": 1,
+  "status": true
+},
+{
+  "_id": {
+    "$oid": "60047d92b5a8d22b18f6f9d6"
+  },
+  "poster": "https://res.cloudinary.com/dlxpjkaay/image/upload/v1762792738/hình_ảnh_2025-11-10_233856228_rz3w3v.png",
+  "expertise": "Khóa học cơ bản về nguyên lý marketing dành cho người mới, giúp học viên hiểu toàn bộ nền tảng marketing truyền thống và kỹ thuật số. Bao gồm nghiên cứu thị trường, hành vi khách hàng, định vị thương hiệu, xây dựng chiến lược marketing và phân tích hiệu quả chiến dịch. Học viên học cách áp dụng nguyên lý cơ bản để thiết kế các kế hoạch marketing thực tế, nắm bắt xu hướng, kết hợp các công cụ số, từ đó phát triển kỹ năng xây dựng thương hiệu và tối ưu hóa chiến lược tiếp thị cho doanh nghiệp hoặc cá nhân.",
+  "description": "Khóa học cơ bản về nguyên lý marketing dành cho người mới bắt đầu.",
+  "evaluationPoint": 0,
+  "numberOfStudent": 0,
+  "numberOfView": 0,
+  "tuition": 200000,
+  "uploadDate": {
+    "$date": "2021-01-18T12:20:00.000Z"
+  },
+  "numberOfVideo": 4,
+  "previewIndex": [
+    0,
+    1,
+    2
+  ],
+  "whatYoullLearn": [
+    "Nắm vững nguyên lý marketing căn bản.",
+    "Phân biệt marketing truyền thống và kỹ thuật số.",
+    "Hiểu rõ hành vi khách hàng và định vị thương hiệu.",
+    "Xây dựng chiến lược marketing hiệu quả."
+  ],
+  "name": "Principle For Marketing",
+  "idCourseTopic": {
+    "$oid": "60008bbfb00fb11eecfcfb7c"
+  },
+  "idLecturer": {
+    "$oid": "5fed6330aba5d81fc019f9b8"
+  },
+  "videos": [],
+  "userEvaluations": [],
+  "userReviews": [],
+  "__v": 1,
+  "status": true
+},
+{
+  "_id": {
+    "$oid": "60047d92b5a8d22b18f6f9d7"
+  },
+  "poster": "https://res.cloudinary.com/dlxpjkaay/image/upload/v1762792861/hình_ảnh_2025-11-10_234059231_sjpv99.png",
+  "expertise": "Khóa học trang bị kiến thức về PR và truyền thông doanh nghiệp, bao gồm lập kế hoạch truyền thông nội bộ và bên ngoài, quản lý khủng hoảng, kỹ năng thuyết trình và giao tiếp chuyên nghiệp. Học viên học cách xây dựng hình ảnh doanh nghiệp, phát triển chiến lược PR hiệu quả, khai thác công cụ truyền thông hiện đại và đánh giá hiệu quả các chiến dịch. Khóa học giúp phát triển kỹ năng giao tiếp, thuyết phục, quản lý thương hiệu và xử lý tình huống truyền thông phức tạp trong môi trường doanh nghiệp.",
+  "description": "Khóa học PR & Corporate Communication giúp bạn hiểu cách xây dựng hình ảnh doanh nghiệp chuyên nghiệp.",
+  "evaluationPoint": 0,
+  "numberOfStudent": 0,
+  "numberOfView": 2,
+  "tuition": 200000,
+  "uploadDate": {
+    "$date": "2021-01-18T12:40:00.000Z"
+  },
+  "numberOfVideo": 5,
+  "previewIndex": [
+    0,
+    1,
+    2
+  ],
+  "whatYoullLearn": [
+    "Hiểu bản chất của PR trong doanh nghiệp.",
+    "Xây dựng kế hoạch truyền thông nội bộ và bên ngoài.",
+    "Quản lý khủng hoảng truyền thông.",
+    "Kỹ năng thuyết trình và giao tiếp chuyên nghiệp."
+  ],
+  "name": "Foundation Of PR & Corporate Communication",
+  "idCourseTopic": {
+    "$oid": "60008bbfb00fb11eecfcfb7c"
+  },
+  "idLecturer": {
+    "$oid": "5fed6330aba5d81fc019f9b9"
+  },
+  "videos": [],
+  "userEvaluations": [],
+  "userReviews": [],
+  "__v": 1,
+  "status": true
+},
+{
+  "_id": {
+    "$oid": "60047d92b5a8d22b18f6f9d8"
+  },
+  "poster": "https://res.cloudinary.com/dlxpjkaay/image/upload/v1762792923/hình_ảnh_2025-11-10_234200978_rvz2st.png",
+  "expertise": "Khóa học tổng hợp về Digital Marketing, giúp học viên nắm vững toàn bộ quy trình từ SEO, chạy quảng cáo Facebook và Google, xây dựng thương hiệu cá nhân và doanh nghiệp, phân tích dữ liệu và đo lường hiệu quả chiến dịch. Học viên học cách thiết kế chiến lược số, quản lý kênh truyền thông, tối ưu hóa chuyển đổi, và khai thác công cụ marketing hiện đại. Khóa học phát triển kỹ năng thực hành, phân tích dữ liệu và triển khai chiến dịch Digital Marketing hiệu quả, đáp ứng yêu cầu chuyên môn của môi trường kinh doanh hiện đại.",
+  "description": "Khóa học tổng hợp giúp bạn làm chủ Digital Marketing hiện đại.",
+  "evaluationPoint": 0,
+  "numberOfStudent": 0,
+  "numberOfView": 0,
+  "tuition": 200000,
+  "uploadDate": {
+    "$date": "2021-01-18T13:00:00.000Z"
+  },
+  "numberOfVideo": 4,
+  "previewIndex": [
+    0,
+    1,
+    2
+  ],
+  "whatYoullLearn": [
+    "Nắm rõ toàn bộ quy trình Digital Marketing.",
+    "Cách chạy quảng cáo Facebook, Google và SEO.",
+    "Xây dựng thương hiệu cá nhân và doanh nghiệp.",
+    "Phân tích và đo lường hiệu quả chiến dịch."
+  ],
+  "name": "Digital Marketing",
+  "idCourseTopic": {
+    "$oid": "60008bbfb00fb11eecfcfb7c"
+  },
+  "idLecturer": {
+    "$oid": "5fed6330aba5d81fc019f9ba"
+  },
+  "videos": [],
+  "userEvaluations": [],
+  "userReviews": [],
+  "__v": 1,
+  "status": true
+}]

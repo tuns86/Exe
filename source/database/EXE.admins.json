@@ -1,0 +1,16 @@
+[{
+  "_id": {
+    "$oid": "5ff3e756a9147b36a8fe1cbf"
+  },
+  "name": "admin",
+  "date_added": {
+    "$date": "2021-01-05T04:12:57.945Z"
+  },
+  "avatar": "/public/avatar/5ff3e756a9147b36a8fe1cbf/avatar.png",
+  "isAuth": false,
+  "email": "admin@gmail.com",
+  "password": "$2y$10$Fh4tfMrNA8ZjF/UyqN6OMOQ8EMD/UEvKK/AcJ9Zglf1bHWqWou8C.",
+  "__v": 0,
+  "gender": "nam",
+  "roll": "admin"
+}]

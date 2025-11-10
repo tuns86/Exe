@@ -1,0 +1,325 @@
+[{
+  "_id": {
+    "$oid": "6000473871058d1140488fab"
+  },
+  "gender": "male",
+  "date": {
+    "$date": "2021-01-14T13:27:00.136Z"
+  },
+  "avatar": "/public/avatar/default/avatar.png",
+  "isAuth": true,
+  "idWishList": [],
+  "purchasedCourses": [],
+  "name": "Phạm Tống Bình Minh",
+  "email": "minhgoodkid123@gmail.com",
+  "password": "$2a$10$kS/qeceDmUNE04hAc.CXg.Axq/rW4OrUhpZyyBCHVbEKvWkR7pOxO",
+  "otpNumber": "671234",
+  "__v": 0,
+  "status": true
+},
+{
+  "_id": {
+    "$oid": "68db6ea1e554ac3794ddc863"
+  },
+  "gender": "female",
+  "date": {
+    "$date": "2025-09-30T05:32:04.173Z"
+  },
+  "avatar": "https://res.cloudinary.com/teamwebctt2/image/upload/v1610695375/webctt2/avatar/default/avatar.png",
+  "isAuth": true,
+  "idWishList": [],
+  "status": true,
+  "purchasedCourses": [],
+  "name": "Dang Thanh Phu",
+  "email": "gpt06@roboticvn.com",
+  "password": "$2a$10$yp8MmGOOFazRpY5XR1Aw2OZPNJP65cRMDzQgobhjCnAmTaWqb1VP2",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69095b7088affd00598214c3"
+  },
+  "gender": "male",
+  "date": {
+    "$date": "2025-11-04T01:41:52.638Z"
+  },
+  "avatar": "https://res.cloudinary.com/teamwebctt2/image/upload/v1610695375/webctt2/avatar/default/avatar.png",
+  "isAuth": true,
+  "idWishList": [],
+  "status": true,
+  "purchasedCourses": [],
+  "name": "Nguyễn Đăng Khoa",
+  "email": "khoadn214@gmail.com",
+  "password": "$2a$10$HN9GOMgWft0LU8sgw6EKdeFMPJcqRPx/q1Xmaa/WGTOjvjN2CfCka",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69096159c25ac30057f803d6"
+  },
+  "gender": "male",
+  "date": {
+    "$date": "2025-11-04T01:52:30.444Z"
+  },
+  "avatar": "https://res.cloudinary.com/teamwebctt2/image/upload/v1610695375/webctt2/avatar/default/avatar.png",
+  "isAuth": true,
+  "idWishList": [],
+  "status": true,
+  "purchasedCourses": [],
+  "name": "Đoàn Ngọc Nguyên Khang",
+  "email": "nguyenkhangne2808@gmail.com",
+  "password": "$2a$10$4LqtunLJC/lUfrON4weLVuAvinmGi0MfyM.jItpw/YDnY/S6hFLrC",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6910946a3e69790047ef25b6"
+  },
+  "gender": "female",
+  "date": {
+    "$date": "2025-11-09T13:14:52.239Z"
+  },
+  "avatar": "https://res.cloudinary.com/teamwebctt2/image/upload/v1610695375/webctt2/avatar/default/avatar.png",
+  "isAuth": true,
+  "idWishList": [],
+  "status": true,
+  "purchasedCourses": [],
+  "name": "Quyên",
+  "email": "nnq09042004@gmail.com",
+  "password": "$2a$10$JOJtOKgmO/Ko5/4fHOHdVeHNMGOQIAkrg7ZGk7TAtArRGevuvioC6",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6910bdf6aae2930047435b4d"
+  },
+  "gender": "female",
+  "date": {
+    "$date": "2025-11-09T16:13:14.785Z"
+  },
+  "avatar": "https://res.cloudinary.com/teamwebctt2/image/upload/v1610695375/webctt2/avatar/default/avatar.png",
+  "isAuth": true,
+  "idWishList": [],
+  "status": true,
+  "purchasedCourses": [],
+  "name": "Thảo Linn",
+  "email": "thaolinhh411@gmail.com",
+  "password": "$2a$10$9WMeTRTsCzZmgF4H9J0JdeyAI7Zu7tF9fdyzzJmIzBxQRS6.o9Bly",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6910bdf6aae2930047435b4f"
+  },
+  "gender": "female",
+  "date": {
+    "$date": "2025-11-09T16:13:14.785Z"
+  },
+  "avatar": "https://res.cloudinary.com/teamwebctt2/image/upload/v1610695375/webctt2/avatar/default/avatar.png",
+  "isAuth": true,
+  "idWishList": [],
+  "status": true,
+  "purchasedCourses": [],
+  "name": "Thảo Linn",
+  "email": "thaolinhh411@gmail.com",
+  "password": "$2a$10$Eo1rKPzYRs/AcTGRT3SMWO0QBa3hxrE0tjIO9kLwebaGcfOCV/pKK",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "691156b3c4a88800472bfede"
+  },
+  "gender": "male",
+  "date": {
+    "$date": "2025-11-10T03:01:09.896Z"
+  },
+  "avatar": "https://res.cloudinary.com/teamwebctt2/image/upload/v1610695375/webctt2/avatar/default/avatar.png",
+  "isAuth": true,
+  "idWishList": [],
+  "status": true,
+  "purchasedCourses": [],
+  "name": "Quang Hưng",
+  "email": "phamquanghung9bthcschuvanan@gmail.com",
+  "password": "$2a$10$312ioH1H96onG90ZJaC6..QebR2joRMtJ54VtgFU0gmzoUDuz/UrK",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68d21a1dd5b13064b4c2b305"
+  },
+  "gender": "male",
+  "date": {
+    "$date": "2025-09-23T03:52:14.595Z"
+  },
+  "avatar": "https://res.cloudinary.com/teamwebctt2/image/upload/v1610695375/webctt2/avatar/default/avatar.png",
+  "isAuth": true,
+  "idWishList": [],
+  "status": true,
+  "purchasedCourses": [],
+  "name": "tuns86",
+  "email": "tuan1@gmail.com",
+  "password": "$2a$12$KIXsCzEYjXPt1A6bnFqlxOuQxF44XY0Hq5SYnQyCvnKbOhrZy9Rvu",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68d21a1dd5b13064b4c2b306"
+  },
+  "gender": "female",
+  "date": {
+    "$date": "2025-09-24T08:12:10.000Z"
+  },
+  "avatar": "https://res.cloudinary.com/teamwebctt2/image/upload/v1610695375/webctt2/avatar/default/avatar.png",
+  "isAuth": true,
+  "idWishList": [],
+  "status": true,
+  "purchasedCourses": [],
+  "name": "Lan Huong",
+  "email": "lanhuong@gmail.com",
+  "password": "$2a$12$KIXsCzEYjXPt1A6bnFqlxOuQxF44XY0Hq5SYnQyCvnKbOhrZy9Rvu",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68d21a1dd5b13064b4c2b307"
+  },
+  "gender": "male",
+  "date": {
+    "$date": "2025-08-15T14:30:00.000Z"
+  },
+  "avatar": "https://res.cloudinary.com/teamwebctt2/image/upload/v1610695375/webctt2/avatar/default/avatar.png",
+  "isAuth": true,
+  "idWishList": [],
+  "status": true,
+  "purchasedCourses": [],
+  "name": "Minh Quang",
+  "email": "minhquang@gmail.com",
+  "password": "$2a$12$KIXsCzEYjXPt1A6bnFqlxOuQxF44XY0Hq5SYnQyCvnKbOhrZy9Rvu",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68d21a1dd5b13064b4c2b308"
+  },
+  "gender": "female",
+  "date": {
+    "$date": "2025-07-01T09:00:00.000Z"
+  },
+  "avatar": "https://res.cloudinary.com/teamwebctt2/image/upload/v1610695375/webctt2/avatar/default/avatar.png",
+  "isAuth": true,
+  "idWishList": [],
+  "status": true,
+  "purchasedCourses": [],
+  "name": "Thuy Trang",
+  "email": "thuytrang@gmail.com",
+  "password": "$2a$12$KIXsCzEYjXPt1A6bnFqlxOuQxF44XY0Hq5SYnQyCvnKbOhrZy9Rvu",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68d21a1dd5b13064b4c2b309"
+  },
+  "gender": "male",
+  "date": {
+    "$date": "2025-06-20T21:15:00.000Z"
+  },
+  "avatar": "https://res.cloudinary.com/teamwebctt2/image/upload/v1610695375/webctt2/avatar/default/avatar.png",
+  "isAuth": true,
+  "idWishList": [],
+  "status": true,
+  "purchasedCourses": [],
+  "name": "Bao Nam",
+  "email": "baonam@gmail.com",
+  "password": "$2a$12$KIXsCzEYjXPt1A6bnFqlxOuQxF44XY0Hq5SYnQyCvnKbOhrZy9Rvu",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68d21a1dd5b13064b4c2b30a"
+  },
+  "gender": "female",
+  "date": {
+    "$date": "2025-05-11T07:45:00.000Z"
+  },
+  "avatar": "https://res.cloudinary.com/teamwebctt2/image/upload/v1610695375/webctt2/avatar/default/avatar.png",
+  "isAuth": true,
+  "idWishList": [],
+  "status": true,
+  "purchasedCourses": [],
+  "name": "Hoa Mai",
+  "email": "hoamai@gmail.com",
+  "password": "$2a$12$KIXsCzEYjXPt1A6bnFqlxOuQxF44XY0Hq5SYnQyCvnKbOhrZy9Rvu",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68d21a1dd5b13064b4c2b30b"
+  },
+  "gender": "male",
+  "date": {
+    "$date": "2025-04-02T13:20:00.000Z"
+  },
+  "avatar": "https://res.cloudinary.com/teamwebctt2/image/upload/v1610695375/webctt2/avatar/default/avatar.png",
+  "isAuth": true,
+  "idWishList": [],
+  "status": true,
+  "purchasedCourses": [],
+  "name": "Quoc Viet",
+  "email": "quocviet@gmail.com",
+  "password": "$2a$12$KIXsCzEYjXPt1A6bnFqlxOuQxF44XY0Hq5SYnQyCvnKbOhrZy9Rvu",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68d21a1dd5b13064b4c2b30c"
+  },
+  "gender": "female",
+  "date": {
+    "$date": "2025-03-10T18:40:00.000Z"
+  },
+  "avatar": "https://res.cloudinary.com/teamwebctt2/image/upload/v1610695375/webctt2/avatar/default/avatar.png",
+  "isAuth": true,
+  "idWishList": [],
+  "status": true,
+  "purchasedCourses": [],
+  "name": "Ngoc Anh",
+  "email": "ngocanh@gmail.com",
+  "password": "$2a$12$KIXsCzEYjXPt1A6bnFqlxOuQxF44XY0Hq5SYnQyCvnKbOhrZy9Rvu",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68d21a1dd5b13064b4c2b30d"
+  },
+  "gender": "male",
+  "date": {
+    "$date": "2025-02-01T05:05:00.000Z"
+  },
+  "avatar": "https://res.cloudinary.com/teamwebctt2/image/upload/v1610695375/webctt2/avatar/default/avatar.png",
+  "isAuth": true,
+  "idWishList": [],
+  "status": true,
+  "purchasedCourses": [],
+  "name": "Phong Huy",
+  "email": "phonghuy@gmail.com",
+  "password": "$2a$12$KIXsCzEYjXPt1A6bnFqlxOuQxF44XY0Hq5SYnQyCvnKbOhrZy9Rvu",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68d21a1dd5b13064b4c2b30e"
+  },
+  "gender": "female",
+  "date": {
+    "$date": "2025-01-12T11:11:00.000Z"
+  },
+  "avatar": "https://res.cloudinary.com/teamwebctt2/image/upload/v1610695375/webctt2/avatar/default/avatar.png",
+  "isAuth": true,
+  "idWishList": [],
+  "status": true,
+  "purchasedCourses": [],
+  "name": "Mai Anh",
+  "email": "maianh@gmail.com",
+  "password": "$2a$12$KIXsCzEYjXPt1A6bnFqlxOuQxF44XY0Hq5SYnQyCvnKbOhrZy9Rvu",
+  "__v": 0
+}]
